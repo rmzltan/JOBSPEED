@@ -1,0 +1,326 @@
+/* position of the signup*/
+.signup{
+    
+    margin-left: 500px;
+    margin-top: 100px;
+
+    
+}
+/* text in creating acc*/
+.signup h1{
+    font-size: 60px;
+    font-weight:bold;
+}
+.signup p{
+    font-size: 18px;
+    margin-left: 5px;
+}
+.hrefsignup:link{
+    color:#9F68E8;
+    text-decoration: none;
+
+}
+.hrefsignup:active{
+    color:#9F68E8;
+    text-decoration: none;
+
+}
+.hrefsignup:visited{
+    color:#9F68E8;
+    text-decoration: none;
+
+}
+.hrefsignup:hover{
+    color:#0000FF;
+    text-decoration: none;
+
+}
+
+/* css for input signup*/
+.inputsignup{
+    width:572px; 
+    outline: none !important;
+    border:none!important;
+    box-shadow:none !important;
+
+}
+/*button for google signup*/
+.GOOGLE{
+    background-color:white;
+    color:black;
+    font-weight: 600;
+    border:none;
+    border-radius: 5px;
+    height:45px;
+    width:572px;
+    box-shadow:none !important;
+
+}
+.GOOGLE:hover{
+    background-color:#5534A5;
+}
+.imggoogle{
+    height:20px;
+    width: 20px;
+    margin-right: 5px;
+}
+
+.btnsignup{
+    background-color:#4F2982;
+    color:white;
+    font-weight: 600;
+    border:none;
+    border-radius: 5px;
+    height:45px;
+    width:572px;
+    box-shadow:none !important;
+}
+.btnsignup:hover{
+    background-color:#5534A5;
+}
+
+.hrunderpassword{
+    width:572px;
+}
+/*parang border lang to ng landing page para macut mga shape ata*/
+.box{
+    height:100%;
+    position: relative;
+    overflow: hidden;
+
+}
+/*bilog bilog na mga picure and shape*/
+.compass{
+    position: absolute;
+    left:340px;
+    top:100px;
+    z-index: 1;
+}
+.circleimg1{
+    position:absolute;
+    left:550px;
+    top:300px;
+    height: 150px;
+    width: 150px;
+    border: solid 5px #4F2982;
+    border-radius: 50%;
+    background-image: url(../Images/img1.jpg);
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-clip:content-box;
+    z-index: 2;
+
+}
+.circleimg2{
+    position:absolute;
+    z-index: 2;
+    left:590px;
+    top:70px;
+    height: 70px;
+    width: 70px;
+    border: solid 1px #707070;
+    border-radius: 50%;
+    background-image: url(../Images/img2.jpg);
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-clip:content-box;
+
+}
+.circleimg3{
+    position:absolute;
+    left:315px;
+    top:340px;
+    height: 70px;
+    width: 70px;
+    border: solid 1px #707070;
+    border-radius: 50%;
+    background-image: url(../Images/img3.jpg);
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-clip:content-box;
+    z-index: 3;
+
+}
+.circleimg4{
+    position:absolute;
+    z-index: 100;
+    left:865px;
+    top:340px;
+    height: 70px;
+    width: 70px;
+    border: solid 1px #707070;
+    border-radius: 50%;
+    background-image: url(../Images/img4.jpg);
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-clip:content-box;
+
+}
+.circleimg5{
+    position:absolute;
+    z-index: 100;
+    left:590px;
+    top:615px;
+    height: 70px;
+    width: 70px;
+    border: solid 1px #707070;
+    border-radius: 50%;
+    background-image: url(../Images/img5.jpg);
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-clip:content-box;
+
+}
+.circleimg6{
+    position:absolute;
+    z-index: 100;
+    left:800px;
+    top:520px;
+    height: 70px;
+    width: 70px;
+    border: solid 1px #707070;
+    border-radius: 50%;
+    background-image: url(../Images/img6.jpg);
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-clip:content-box;
+
+}
+.circleimg7{
+    position:absolute;
+    z-index: 100;
+    left:380px;
+    top:520px;
+    height: 70px;
+    width: 70px;
+    border: solid 1px #707070;
+    border-radius: 50%;
+    background-image: url(../Images/img7.jpg);
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-clip:content-box;
+
+}
+.circleimg8{
+    position:absolute;
+    z-index: 100;
+    left:380px;
+    top:170px;
+    height: 70px;
+    width: 70px;
+    border: solid 1px #707070;
+    border-radius: 50%;
+    background-image: url(../Images/img8.jpg);
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-clip:content-box;
+
+}
+.circleimg9{
+    position:absolute;
+    z-index: 100;
+    left:800px;
+    top:170px;
+    height: 70px;
+    width: 70px;
+    border: solid 1px #707070;
+    border-radius: 50%;
+    background-image: url(../Images/img9.jpg);
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-clip:content-box;
+
+}
+.circle2{
+    position:absolute;
+    height: 360px;
+    width: 360px;
+    border-radius: 50%;
+    border: solid 30px RGBA(159,104,232,0.16);
+    left:445px;
+    top:200px;
+    z-index: 1;
+}
+.circle3{
+    position:absolute;
+    height: 450px;
+    width: 450px;
+    border-radius: 50%;
+    border: solid 1px #9F68E8;
+    left:400px;
+    top:155px;
+}
+.circle4{
+    position:absolute;
+    height: 550px;
+    width: 550px;
+    border-radius: 50%;
+    border: dashed 1px #9F68E8;
+    left:350px;
+    top:105px;
+}
+
+/*hexagon background*/
+.hexagon1{
+    position:absolute;
+    top:713px;
+    left:175px;
+}
+.hexagon2{
+    position:absolute;
+    top: 875px;
+    left:485px;
+}
+.hexagon3{
+    position:absolute;
+    top:875px;
+    left:-130px;
+}
+.hexagon4{
+    position:absolute;
+    top:550px;
+    left:-130px;
+}
+.hexagon5{
+    position:absolute;
+    top:225px;
+    left:-130px;
+}
+.crooked-hr{
+    position:absolute;
+    left:1000px;
+    top:-1px;
+}
+/*Sign in page*/
+.hrefForgotpass:link{
+    margin-left:330px;
+    color:#9F68E8;
+    text-decoration: none;
+
+}
+.hrefForgotpass:active{
+    margin-left:330px;
+    color:#9F68E8;
+    text-decoration: none;
+
+}
+.hrefForgotpass:visited{
+    margin-left:330px;
+    color:#9F68E8;
+    text-decoration: none;
+
+}
+.hrefForgotpass:hover{
+    color:#0000FF;
+    text-decoration: none;
+
+}

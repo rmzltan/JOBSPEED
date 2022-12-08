@@ -1,0 +1,68 @@
+
+.grid-freelancer-add-info{
+    max-width: 1200px;
+    padding: 10px;
+    display:grid;
+    grid-template-columns: repeat(3 , 1fr);
+    column-gap: 30px;
+    row-gap:15px;
+    font-family: 'Open Sans', sans-serif;
+    
+}
+.grid-row-span{
+    grid-row: span 4;
+}
+.box-1{
+    width:1300px;
+    padding:40px;
+    padding-left: 130px;
+    padding-right: 130px;
+    background: rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
+    font-size: 20px;
+    border-radius:15px 15px 15px 15px;
+    border-bottom: 5px solid #4F2982;
+    
+    
+}
+.box-1:hover{
+    border-bottom: 5px solid #9F68E8;
+}
+.loc{
+    width: 510px;
+}
+
+.btncancel{
+    margin-right: 100px;
+    width: 150px;
+    color:white;
+    background:#4F2982;
+    outline: none !important;
+    border:none!important;
+    box-shadow:none !important;
+}
+.btncancel:hover{
+    background-color:#9F68E8;
+    border:none !important;
+}
+.btnsave{
+    width: 150px;
+    color:white;
+    background:#4F2982;
+    outline: none !important;
+    border:none!important;
+    box-shadow:none !important;
+}
+.btnsave:hover{
+    background-color:#9F68E8;
+    border:none !important;
+}
+.inputsignup{
+    border:1px solid #dee2e6;
+    outline: none !important;
+    box-shadow:none !important;
+
+}
+.inputsignup:hover{
+    border:1px solid #dee2e6;
+}

@@ -1,0 +1,97 @@
+.container-grid{
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 10px;
+    display:grid;
+    grid-template-columns: repeat(2 , 1fr);
+    font-family: 'Open Sans', sans-serif;
+    
+}
+.box-1{
+    width:800px;
+    padding:40px;
+    background: rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
+    font-size: 20px;
+    border-radius:0px 15px 15px 0px;
+    
+    
+}
+.product-image img{
+    border-radius:15px 15px 15px 15px;
+    max-width: 350px;
+    position: relative;
+    left: -50;
+    margin: 40px 0;
+    filter: drop-shadow(-6px 40px 23px rgba(0, 0, 0, 0.5));
+}
+.product-image{
+    background: linear-gradient(to bottom, #9F68E8 0%, #4F2982 100%);
+    border-radius:15px 0px 0px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 5px solid #4F2982;
+
+}
+.product-pic {
+  border-radius:15px 15px 15px 15px;
+  width: 400px;
+  height:550px;
+  object-fit:cover;
+  margin-right:70px;
+  margin-top:-10px;
+  
+  filter: drop-shadow(-6px 40px 23px rgba(0, 0, 0, 0.5));
+}
+@media (min-width: 56.25em) {
+
+  
+    .product-pic {
+      left: -50px;
+      max-width: 330px;
+    }
+  
+
+  }
+  .dots {
+    display: flex;
+    
+  }
+  .dots > a {
+    background-color: #2A1546;
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+    border-radius: 50%;
+  }
+  .dots > a:hover, .dots > a.active {
+    background-color: white;
+  }
+  .dots i {
+    display: none;
+  }
+  
+  .btninservice{
+    margin-right: 30px;
+    width: 150px;
+    color:white;
+    background:#4F2982;
+    outline: none !important;
+    border:none!important;
+    box-shadow:none !important;
+}
+.btninservice:hover{
+    background-color:#9F68E8;
+    border:none !important;
+}
+.inputsignup{
+    height:50px;
+    border:1px solid #dee2e6;
+    outline: none !important;
+    box-shadow:none !important;
+
+}
+.inputsignup:hover{
+    border:1px solid #dee2e6;
+}

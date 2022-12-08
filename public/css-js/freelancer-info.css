@@ -1,0 +1,248 @@
+.grid-freelancer-add-info{
+    max-width: 1200px;
+    margin: 50px 150px;
+    padding: 10px;
+    display:grid;
+    grid-template-columns: repeat(3 , 1fr);
+    column-gap: 30px;
+    row-gap:15px;
+    font-family: 'Open Sans', sans-serif;
+    
+}
+.grid-row-span{
+    grid-row: span 4;
+}
+.box-1{
+    color:rgb(0, 0, 0);
+    font-size: 20px;
+    
+}
+
+.main-profile{
+    display:block;
+    width: 100%;
+    margin: 0 auto;
+    background: #fff;
+    border-radius:15px 15px 15px 15px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-bottom: 5px solid #4F2982;
+}
+.cover-image{
+    object-fit:cover;
+    z-index:1;
+    padding:0px;
+}
+.cover-image img{
+    object-fit: cover;
+    height:113px;
+    width:381px;
+    z-index:1;
+    border-radius:15px 15px 0px 0px;
+}
+.profile-image{
+    top:215px;
+    left:190px;
+    z-index:2;
+ }
+ .profile-image img{
+    position: relative;
+    top:-50px;
+    left:25px;
+    max-width:110px;
+    max-height: 110px;
+    z-index:2;
+    border-radius:50%;
+    border:5px white solid;
+ }
+ .previewprofile{
+     position: relative;
+     top:-45px;
+     left:30px;
+     width: 320px;
+     background:#4F2982;
+     color:white;
+     outline:none;
+     border:none;
+     box-shadow:none !important;
+ }
+ .previewprofile:hover{
+     background:#9F68E8;
+ }
+ .hr-profile{
+    position: relative;
+    top:-45px;
+    left:30px;
+    max-width: 320px;
+    background:black;
+ }
+ .main-profile h5{
+    position: relative;
+    top:-55px;
+    left:30px;
+    color:black;
+
+ }
+ .add-skill-p{
+    position: relative;
+    top:-85px;
+    left:320px;
+    color:#9F68E8;
+    font-size: 16px;
+}
+.skills {
+	padding: 1.4rem;
+    position: relative;
+    top:-120px;
+    margin-bottom: -125px;
+}
+
+
+.skill-box {
+	margin: 0.2rem 4px;
+	overflow: hidden;
+	border-radius: 5px;
+	text-align: center;
+    font-size: 18px;
+}
+
+.skill-size {
+	/*flex-basis: 140px;
+        max-width: 250px;*/
+	flex-grow: 1;
+	flex-shrink: 0;
+
+}
+
+.skill-list {
+    color: black;
+	flex-wrap: wrap;
+	display: flex;
+	background: #ffffff;
+	overflow-x: visible;
+	width: 100%;
+	padding: 0 10px 0 3px;
+	overflow-y: hidden;
+	padding-right: 0.4rem;
+    
+}
+
+.skill-list::-webkit-scrollbar {
+	width: 0px;
+	height: 0px;
+}
+
+.skill-list::-webkit-scrollbar-thumb {
+	background-color: #555;
+}
+
+.skill-list div:nth-child(7n-6) {
+	background: #f1ecf9 ;
+}
+
+.skill-list div:nth-child(7n-5) {
+	background: #f1ecf9 ;
+}
+
+.skill-list div:nth-child(7n-4) {
+	background: #f1ecf9 ;
+}
+
+.skill-list div:nth-child(7n-3) {
+	background: #f1ecf9;
+}
+
+.skill-list div:nth-child(7n-2) {
+	background: #f1ecf9;
+}
+
+.skill-list div:nth-child(7n-1) {
+	background: #f1ecf9;
+}
+
+.skill-list div:nth-child(7n) {
+	background: #f1ecf9;
+}
+/* end*/
+
+/* description part for the freelancer ui*/
+.box-description{
+    display:block;
+    padding: 10px 30px 10px 30px;
+    margin-top:20px;
+    background: #fff;
+    border-radius:15px 15px 15px 15px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-bottom: 5px solid #4F2982;
+
+}
+.see-all-description{
+    margin-left: 183px;
+    font-size: 16px;
+}
+.see-all-description:link{
+    color:#9F68E8;
+    text-decoration: none;
+
+}
+.see-all-description:active{
+    color:#9F68E8;
+    text-decoration: none;
+
+}
+.see-all-description:visited{
+    color:#9F68E8;
+    text-decoration: none;
+
+}
+.see-all-description:hover{
+    color:#0000FF;
+    text-decoration: none;
+
+}
+.box-2{
+    background:rgb(255, 255, 255);
+    padding: 30px;
+    border-radius:15px 15px 15px 15px;
+    width: 700px;
+    border-bottom: 5px solid #4F2982;
+}
+.box-3{
+    background:rgb(255, 255, 255);
+    padding: 30px;
+    border-radius:15px 15px 15px 15px;
+    width: 470px;
+    border-bottom: 5px solid #4F2982;
+}
+.span1{
+    display: inline-block !important;
+}
+.btncancel{
+    margin-right: 30px;
+    width: 150px;
+    color:white;
+    background:#4F2982;
+    outline: none !important;
+    border:none!important;
+    box-shadow:none !important;
+}
+.btncancel:hover{
+    background-color:#9F68E8;
+    border:none !important;
+}
+.btnsave{
+    width: 150px;
+    color:white;
+    background:#4F2982;
+    outline: none !important;
+    border:none!important;
+    box-shadow:none !important;
+}
+.btnsave:hover{
+    background-color:#9F68E8;
+    border:none !important;
+}
+
+
+

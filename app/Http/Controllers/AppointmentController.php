@@ -6,7 +6,7 @@ use App\Models\Appointment;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Service;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\userSeller;
 class AppointmentController extends Controller
 {
@@ -40,9 +40,17 @@ class AppointmentController extends Controller
                 'payment' => 'required',
                 
             ]);
-            
-            $NewAppointment= new Appointment();
+            $request->request->add(['user_id' => auth()->id()]);
            
+            // Set the service_id and user_seller_id fields based on the service
+            $service = Service::find($id);
+            
+            $request->request->add(['service_id' => $service->id]);
+            $request->request->add(['user_seller_id' => $service->user_seller_id]);
+            $NewAppointment= new Appointment();
+            $NewAppointment->user_id = $request->user_id;
+            $NewAppointment->service_id = $request->service_id;
+            $NewAppointment->user_seller_id = $request->user_seller_id;
             $NewAppointment -> FirstName = $request->FirstName;
             $NewAppointment -> LastName = $request->LastName;
             $NewAppointment -> date = $request->date;
@@ -55,8 +63,7 @@ class AppointmentController extends Controller
             $NewAppointment -> payment = $request->payment;
             
             
-            $serviceData = Service::find($id);
-            $serviceData->appointments()->save($NewAppointment);
+            $NewAppointment->save();
            
             
            
@@ -66,46 +73,59 @@ class AppointmentController extends Controller
         
     }
     public function ServicePayment($id){
-        $data = array();
-        if (Session()->has('signInId')){
-            $data = User::where('id','=', Session()->get('signInId'))->first();
+        if (Auth::check()) {
+            $userId = Auth::id();
+            $data = User::where('id', $userId)->first();
         }
         $serviceData = Service::find($id);
         return view('feed.payment',compact('serviceData','data',));
         
     }
     public function ShowAllAppointment(){
-        $data = array();
-    
-        if (Session()->has('signInId')){
-            $data = User::where('id','=', Session()->get('signInId'))->first();
-            
-
+        if (Auth::check()) {
+            $userId = Auth::id();
+            $data = User::where('id', $userId)->first();
         }
+        
         $sellerData = UserSeller::where('user_id', $data->id)->first();
         $services = Service::where('user_seller_id', $sellerData->id)->get();
-        
-        $appointment = Appointment::where('service_id', $sellerData->id)->get();
-          return view('seller.appointments  ',compact('data','sellerData','services','appointment'));
+        $appointments = Appointment::where('user_seller_id', $sellerData->id)->get();
+          return view('seller.appointments  ',compact('data','sellerData','services','appointments'));
     }
     
-    public function editAppointment(Request $request,$id){
-        $appointment = Appointment::find($id);
-        $appointment->status  = 'Approved';
-        $appointment->save();
-        $data = array();
-    
-        if (Session()->has('signInId')){
-            $data = User::where('id','=', Session()->get('signInId'))->first();
-            
-
+    public function updateStatusApprove($id)
+        {
+            // Retrieve the appointment with the given ID
+            $appointment = Appointment::find($id);
+            // Update the status column
+            $appointment->status = 'ongoing';
+            // Save the changes
+            $appointment->save();
+            // Redirect the user back to the previous page
+            return back();
         }
-        $sellerData = UserSeller::where('user_id', $data->id)->first();
-        $services = Service::where('user_seller_id', $sellerData->id)->get();
-        
-        $appointment = Appointment::where('service_id', $sellerData->id)->get();
-          return view('seller.appointments  ',compact('data','sellerData','services','appointment'));
-    }
+    public function updateStatusComplete($id)
+        {
+            // Retrieve the appointment with the given ID
+            $appointment = Appointment::find($id);
+            // Update the status column
+            $appointment->status = 'completed';
+            // Save the changes
+            $appointment->save();
+            // Redirect the user back to the previous page
+            return back();
+        }
+        public function updateStatusMarkFinished($id)
+        {
+            // Retrieve the appointment with the given ID
+            $appointment = Appointment::find($id);
+            // Update the status column
+            $appointment->status = 'waiting for payment release';
+            // Save the changes
+            $appointment->save();
+            // Redirect the user back to the previous page
+            return back();
+        }
     /**
      * Store a newly created resource in storage.
      *

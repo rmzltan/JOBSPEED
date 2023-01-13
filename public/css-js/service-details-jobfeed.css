@@ -49,6 +49,7 @@
     padding: 40px;
     background-color: white;
     border-radius: 0 0 20px 20px;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
   }
   .product-details .title {
     text-transform: uppercase;
@@ -159,10 +160,11 @@
 
 .profile-image{
   border-radius: 50%;
-  max-width:150px;
-  max-height:150px;
+  width:150px;
+  height:150px;
   margin-top:20px;
   margin-right: 10px;
+  object-fit: cover;
 }
 
 .profile-card{
@@ -201,6 +203,14 @@
 
 .details-box{
   padding:60px;
+  background-color: white;
+  margin-top:30px;
+  border-radius: 15px;
+  border-bottom: 5px solid #4F2982;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 10%)
+}
+.details-box2{
+  padding:20px;
   background-color: white;
   margin-top:30px;
   border-radius: 15px;
@@ -291,4 +301,46 @@
 .price{
   background-color:rgb(255, 255, 255);
   padding:20px 20px 20px 20px;
+}
+
+.skill-box2 {
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.2rem 1.1rem;
+  margin: 0.2rem;
+  font-size: 1rem;
+  position: relative;
+  color:black;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+
+
+.skill-box2:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.review_image{
+  border-radius: 10%;
+  width:80px;
+  height:80px;
+  
+  object-fit: cover;
+}
+
+.rating-progress-bar {
+  width: 60%;
+  height: 15px;
+  background-color: rgb(245, 245, 245);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.rating-progress-bar-fill {
+  height: 100%;
+  
 }

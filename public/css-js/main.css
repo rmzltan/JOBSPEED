@@ -38,6 +38,7 @@
     padding-top:15px;
     height:60px;
     border-radius:15px 15px 15px 15px;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 10%)
 }
 .item-user{
     background:white !important;
@@ -81,11 +82,12 @@
     position: relative;
     top:-50px;
     left:25px;
-    max-width:110px;
-    max-height: 110px;
+    width:110px;
+    height: 110px;
     z-index:2;
     border-radius:50%;
     border:5px white solid;
+    object-fit: cover;
  }
  .previewprofile{
      position: relative;
@@ -115,19 +117,8 @@
     color:black;
 
  }
- .add-skill-p{
-    position: relative;
-    top:-85px;
-    left:290px;
-    color:#9F68E8;
-    font-size: 16px;
-}
-.skills {
-	padding: 1.4rem;
-    position: relative;
-    top:-120px;
-    margin-bottom: -125px;
-}
+ 
+
 
 
 .skill-box {
@@ -146,54 +137,15 @@
 
 }
 
-.skill-list {
-    color: black;
-	flex-wrap: wrap;
-	display: flex;
-	background: #ffffff;
-	overflow-x: visible;
-	width: 100%;
-	padding: 0 10px 0 3px;
-	overflow-y: hidden;
-	padding-right: 0.4rem;
-    
-}
+.box-skill{
+    display:block;
+    padding: 10px 20px 10px 20px;
+    margin-top:20px;
+    background: #fff;
+    border-radius:15px 15px 15px 15px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 
-.skill-list::-webkit-scrollbar {
-	width: 0px;
-	height: 0px;
-}
-
-.skill-list::-webkit-scrollbar-thumb {
-	background-color: #555;
-}
-
-.skill-list div:nth-child(7n-6) {
-	background: #f1ecf9 ;
-}
-
-.skill-list div:nth-child(7n-5) {
-	background: #f1ecf9 ;
-}
-
-.skill-list div:nth-child(7n-4) {
-	background: #f1ecf9 ;
-}
-
-.skill-list div:nth-child(7n-3) {
-	background: #f1ecf9;
-}
-
-.skill-list div:nth-child(7n-2) {
-	background: #f1ecf9;
-}
-
-.skill-list div:nth-child(7n-1) {
-	background: #f1ecf9;
-}
-
-.skill-list div:nth-child(7n) {
-	background: #f1ecf9;
 }
 /* end*/
 
@@ -228,6 +180,30 @@
 
 }
 .see-all-description:hover{
+    color:#0000FF;
+    text-decoration: none;
+
+}
+.add-skill-p{
+    color:#9F68E8;
+    font-size: 16px;
+}
+.add-skill-p:link{
+    color:#9F68E8;
+    text-decoration: none;
+
+}
+.add-skill-p:active{
+    color:#9F68E8;
+    text-decoration: none;
+
+}
+.add-skill-p:visited{
+    color:#9F68E8;
+    text-decoration: none;
+
+}
+.add-skill-p:hover{
     color:#0000FF;
     text-decoration: none;
 
@@ -271,6 +247,13 @@
     background-color: white;
     padding:20px;
     border-radius: 15px;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
+}
+.appointment2{
+    background-color: white;
+    padding:10px;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
 }
 /* user ratings*/
 .checked {
@@ -427,3 +410,166 @@
     background-color:#9F68E8;
     border:none !important;
 }
+
+
+.skill-box2 {
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.2rem 1.1rem;
+    margin: 0.2rem;
+    font-size: 1rem;
+    position: relative;
+    color:black;
+    text-transform: capitalize;
+  }
+
+  .skill-box2:hover {
+    background-color: #f5f5f5;
+  }
+
+  .skill-box2 .delete-button {
+    display: none;
+    position: absolute; /* Position the close button absolutely */
+  top: 0; /* Align to top of skill box */
+  right: 0; /* Align to right of skill box */
+  transition: all 0.2s; /* Add a transition effect */
+  z-index: 1;
+  }
+
+  .skill-box2:hover .delete-button {
+    display: inline-block;
+    cursor: pointer;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transform: scale(1.2); /* Scale up the delete button on hover */
+    
+  }
+
+  .skill-box2:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+
+  .pend{
+    background:#4F2982 !important;
+    color:white !important;
+    outline:none;
+    border:none;
+    box-shadow:none !important;
+  }
+  
+  .noAppointment{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
+    border-bottom:4px solid #4F2982;
+    width: 891px;
+    
+  }
+  .image3{
+    height:250px;
+    width: 250px;
+    display: block;
+    margin: 0 auto;
+    
+  }
+  .message{
+    font-size:18px;
+    color:rgb(124, 124, 124); 
+    margin-top: auto;
+    text-align: center;
+  }
+
+  .product-pic2{
+    width:90px;
+    height: 90px;
+    object-fit: cover;
+  }
+  .nav-default-img2{
+    object-fit: cover;
+    margin-right: 10px;
+    height:40px;
+    width:40px;
+    border-radius: 50%;
+}
+  .divinside{
+    background-color: white;
+    padding:20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
+    border-bottom:4px solid #4F2982;
+  }
+
+.see-more-content {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.addReadMore.showlesscontent .SecSec,
+    .addReadMore.showlesscontent .readLess {
+        display: none;
+    }
+
+    .addReadMore.showmorecontent .readMore {
+        display: none;
+    }
+
+    .addReadMore .readMore,
+    .addReadMore .readLess {
+        margin-left: 2px;
+        color: #4F2982;
+        cursor: pointer;
+    }
+
+    .addReadMoreWrapTxt.showmorecontent .SecSec,
+    .addReadMoreWrapTxt.showmorecontent .readLess {
+        display: block;
+    }
+
+    .swiper-button-prev, .swiper-button-next {
+       
+        color: #4F2982 !important;
+      }
+      
+      .review_image{
+        border-radius: 10%;
+        width:80px;
+        height:80px;
+        
+        object-fit: cover;
+      }
+      
+      .rating-progress-bar {
+        width: 60%;
+        height: 15px;
+        background-color: rgb(245, 245, 245);
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      
+      .rating-progress-bar-fill {
+        height: 100%;
+        
+      }
+      .details-box{
+        padding:60px;
+        background-color: white;
+        margin-top:30px;
+        border-radius: 15px;
+        border-bottom: 5px solid #4F2982;
+        box-shadow: 0 2px 5px rgb(0 0 0 / 10%)
+      }

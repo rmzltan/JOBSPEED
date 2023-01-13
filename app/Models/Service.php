@@ -18,14 +18,10 @@ class Service extends Model
         'description',
         'service_image'
     ];
-    public function seller()
+    public function userSeller()
     {
         return $this->belongsTo(UserSeller::class);
-        
     }
 
-    public function appointments()
-    {
-        return $this->hasMany(Appointment::class);
-    }
+    
 }

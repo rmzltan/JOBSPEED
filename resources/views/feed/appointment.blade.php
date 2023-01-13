@@ -68,7 +68,7 @@
                     <div class="row">
                         <div class="col">
                             <label for="exampleInputPassword1" class="form-label">First Name</label>
-                            <input type="text" class="form-control" name="FirstName" id="exampleInputPassword1">
+                            <input type="text" class="form-control" name="FirstName" id="exampleInputPassword1" placeholder="First Namegello" >
                         </div>
                         <div class="col">
                             <label for="exampleInputPassword1" class="form-label">Last Name</label>

@@ -9,6 +9,7 @@ use App\Models\Service;
 use App\Models\User;
 use App\Models\UserSeller;
 use App\Models\Appointment;
+use Illuminate\Support\Facades\Auth;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -32,9 +33,10 @@ class AppServiceProvider extends ServiceProvider
 
         view()->composer('*', function ($view)
         {
-            $data = array();
-            if (Session()->has('signInId')){
-                $data = User::where('id','=', Session()->get('signInId'))->first();
+            $data = null;
+            if (Auth::check()) {
+                $userId = Auth::id();
+                $data = User::where('id', $userId)->first();
             }
             $sellerData = UserSeller::get();
             $serviceData = Service::get();

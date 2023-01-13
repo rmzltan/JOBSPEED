@@ -1,4 +1,4 @@
-<!--?php 
+<!--?php
 
   include_once("data-connection.php");
     require_once("service-details-user-details.php");
@@ -39,25 +39,22 @@ php
 @section('title', 'Service-Detail | JobSpeed')
 @section('main-container')
 
-<link rel="stylesheet" type="text/css" href="{{ asset('css-js/service-details-jobfeed.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css-js/service-details-jobfeed.css') }}">
+  <link
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" rel="stylesheet">
+    
 
 
 <body>
 
     
-    <form action="{{ url('save-appointment/'.$serviceData->id) }}" method="post">
+    <form action="{{ url('save-appointment/' . $serviceData->id) }}" method="post">
         @csrf
         <br><br><br><br>
         <div class="container-box">
             <div class="product-image">
                 <img src="{{ asset('Images/uploaded-services') . '/' . $serviceData->service_image }}" alt="" class="product-pic">
-                    
-                <div class="dots">
-                <a href="#!" class="active"><i>1</i></a>
-                <a href="#!"><i>2</i></a>
-                <a href="#!"><i>3</i></a>
-                <a href="#!"><i>4</i></a>
-                </div>
+
             </div>
                 <div class="product-details">
                     {{-- progress --}}
@@ -96,11 +93,9 @@ php
                         
                         <div class="btn-group">
                             <a class="btn-prev btninservice btn btn-outline-success" type="submit" href="/feed">Back</a>
-                            @if (Session()->has('UserID'))
+                            
                                 <a href="#" class="btn btn-next btninservice">Avail</a>
-                            @else
-                                <a href="{{ url('/add-info')}}" class="btn btn-next btninservice">Avail</a>
-                            @endif
+                            
                         </div>
                         
                         
@@ -116,11 +111,11 @@ php
                             <div class="row">
                                 <div class="col">
                                     <label for="exampleInputPassword1" class="form-label">First Name</label>
-                                    <input type="text" class="form-control" name="FirstName" id="exampleInputPassword1">
+                                    <input type="text" class="form-control" name="FirstName" id="exampleInputPassword1" value="{{ Auth::user()->FirstName }}">
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputPassword1" class="form-label">Last Name</label>
-                                    <input type="text" class="form-control" name="LastName" id="exampleInputPassword1">
+                                    <input type="text" class="form-control" name="LastName" id="exampleInputPassword1" value="{{ Auth::user()->LastName }}">
                                 </div>
                                 </div>
                         </article>
@@ -142,7 +137,7 @@ php
                             <div class="row">
                                 <div class="col">
                                     <label for="exampleInputPassword1" class="form-label">Email Address</label>
-                                    <input type="email" class="form-control" name="email" id="exampleInputPassword1">
+                                    <input type="email" class="form-control" name="email" id="exampleInputPassword1"  value="{{ Auth::user()->email }}">
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputPassword1" class="form-label">Phone Number</label>
@@ -210,7 +205,7 @@ php
                                         You will pay:
                                     </div>
                                     <div class="col d-flex" style="justify-content:flex-end;">
-                                        &#8369; {{ $serviceData->minPricing +20 }}
+                                        &#8369; {{ $serviceData->minPricing + 20 }}
                                     </div>
                                 </div>
                                 <hr>
@@ -274,15 +269,43 @@ php
                     
                     <div class="extra-details">
                         <p style="font-size:20px">{{ $data->FirstName }} {{ $data->LastName }}</p>      
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="reviews fa fa-star"></span>
-                        <span>4 (23)</span><br>
-                        
-                        <a href="" class=" contactbtn btn btn-outline-success">Contact Me</a>
+                        @php
+                $reviews = App\Models\Review::where('user_seller_id', $sellerData->id)->get();
+              @endphp
+               @php
+                if (count($reviews) > 0) {
+                    $sum = 0;
+                
+                    foreach ($reviews as $reviewdata) {
+                        $sum += $reviewdata->rating;
+                        $average2 = $sum / count($reviews);
+                    }
+                    $average2 = number_format($average2, 2);
+                    $reviewCount = count($reviews);
+                } else {
+                    $average2 = 0;
+                    $reviewCount = 0;
+                }
+              @endphp   
+                <div class="d-flex">
+                    <div style=" color:#4F2982; margin-right:5px;">
+                        @for ($i = 0; $i < floor($average2); $i++)
+                        <i class="fa fa-star"></i>
+                      @endfor
+          
+                      @if ($average2 - floor($average2) >= 0.5)
+                        <i class="fa fa-star-half-o"></i>
+                      @endif
+          
+                      @for ($i = 0; $i < 5 - ceil($average2); $i++)
+                        <i class="fa fa-star-o"></i>
+                      @endfor
                     </div>
+                  <div>({{ $reviewCount }})</div>
+                    
+                  </div>
+                    <a href="{{url('seller', $sellerData->id)}}" class=" contactbtn btn btn-outline-success">View Profile</a>
+                  </div>
                     
                 </div>
             <div class="details-box">
@@ -293,7 +316,7 @@ php
                     </div>
                     <div>
                         <h5>Member Since</h5>
-                        <p style="text-transform: capitalize;">{{ \Carbon\Carbon::parse($data->created_at)->isoFormat('MMM  YYYY')}}</p>
+                        <p style="text-transform: capitalize;">{{ \Carbon\Carbon::parse($data->created_at)->isoFormat('MMM  YYYY') }}</p>
                     </div>
                     <div>
                         <h5>Avg. Response Rate</h5>
@@ -307,22 +330,199 @@ php
                 </div>
                 <hr>
                     <p>{{ $sellerData->description }}</p>
-                <div>
+                <hr>
+                <h4>Skills</h4>
+                @if (!$skills->isEmpty())
+                    @foreach ($skills as $skill)
+                        @foreach ($skill->name as $index => $name)
+                                <div class="skill-box2">
+                                    <span>{{ $name }}</span>
+                                </div> @endforeach
+                    @endforeach
+@else
+<p style="color:rgb(114,
+    114, 114); font-size:15px; text-align:center;margin-top:20px;">This seller has not listed any skills. Please check back later for updates
+  or contact the seller for more information.</p>
+  @endif
+  </div>
+  <br>
+  {{-- RATINGS --}}
+  @php
+    if (count($review) > 0) {
+        $sum = 0;
+    
+        foreach ($review as $reviewdata) {
+            $sum += $reviewdata->rating;
+            $average = $sum / count($review);
+        }
+        $average = number_format($average, 2);
+        $reviewCount = count($review);
+    } else {
+        $average = 0;
+        $reviewCount = 0;
+    }
+  @endphp
+  @php
+    $ratingCount = [0, 0, 0, 0, 0];
+    
+    foreach ($review as $reviewdata) {
+        $rating = floor($reviewdata->rating);
+        if ($rating > 5) {
+            $rating = 5;
+        }
+        $ratingCount[$rating - 1]++;
+    }
+    $count5 = $ratingCount[4];
+    $count4 = $ratingCount[3];
+    $count3 = $ratingCount[2];
+    $count2 = $ratingCount[1];
+    $count1 = $ratingCount[0];
+    
+    if ($reviewCount > 0) {
+        $width5 = ($count5 / $reviewCount) * 100;
+        $width4 = ($count4 / $reviewCount) * 100;
+        $width3 = ($count3 / $reviewCount) * 100;
+        $width2 = ($count2 / $reviewCount) * 100;
+        $width1 = ($count1 / $reviewCount) * 100;
+    } else {
+        $width5 = 0;
+        $width4 = 0;
+        $width3 = 0;
+        $width2 = 0;
+        $width1 = 0;
+    }
+    
+  @endphp
 
-                </div>
+
+
+
+  <div class="details-box">
+    <h4>Review and Ratings</h4>
+    <br>
+    <div class="row">
+      <div class="col">
+        <h1 style="margin-bottom: 6px;font-size:20px;text-align:center">Total Reviews</h1>
+        <h1 style="text-align:center">{{ $reviewCount }}</h1>
+
+      </div>
+      <div class="col" style="border-left:1px solid rgb(179, 179, 179); border-right: 1px solid rgb(179, 179, 179);text-align:center;">
+        <div style="margin-bottom: 6px; margin-right:50px;font-size:20px;">Average Rating</div>
+        <div class="d-flex justify-content-center align-items-center">
+          <h1>{{ $average }}</h1>
+          <div style="margin-top:-10px; color:#4F2982; margin-left:10px;">
+            @for ($i = 0; $i < floor($average); $i++)
+              <i class="fa fa-star"></i>
+            @endfor
+
+            @if ($average - floor($average) >= 0.5)
+              <i class="fa fa-star-half-o"></i>
+            @endif
+
+            @for ($i = 0; $i < 5 - ceil($average); $i++)
+              <i class="fa fa-star-o"></i>
+            @endfor
+          </div>
+
+        </div>
+
+
+      </div>
+      <div class="col">
+        <div class="d-flex justify-content-center align-items-center">
+          5
+          <div class="rating-progress-bar" style="margin: 0 15px 0 15px; ">
+            <div class="rating-progress-bar-fill" style="width: {{ $width5 }}%;background-color: #3DAB98;"></div>
+          </div>
+          {{ $count5 }}
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+          4
+          <div class="rating-progress-bar" style="margin: 0 15px 0 15px;">
+            <div class="rating-progress-bar-fill" style="width: {{ $width4 }}%; background-color: #D188E9;"></div>
+          </div>
+          {{ $count4 }}
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+          3
+          <div class="rating-progress-bar" style="margin: 0 15px 0 15px;">
+            <div class="rating-progress-bar-fill" style="width: {{ $width3 }}%; background-color: #EABE56;"></div>
+          </div>
+          {{ $count3 }}
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+          2
+          <div class="rating-progress-bar" style="margin: 0 15px 0 15px;">
+            <div class="rating-progress-bar-fill" style="width: {{ $width2 }}%; background-color: #47B6DB;"></div>
+          </div>
+          {{ $count2 }}
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+          1
+          <div class="rating-progress-bar" style="margin: 0 15px 0 15px;">
+            <div class="rating-progress-bar-fill" style="width: {{ $width1 }}%; background-color: #CD8149;"></div>
+          </div>
+          {{ $count1 }}
+        </div>
+
+
+      </div>
+    </div>
+    @foreach ($review as $reviewdata)
+      @php
+        $sellerData = App\Models\UserSeller::where('id', $reviewdata->user_seller_id)->first();
+        $serviceData = App\Models\Service::where('id', $reviewdata->service_id)->first();
+        $dataUser = App\Models\User::where('id', '=', $reviewdata->user_id)->first();
+        
+      @endphp
+      <hr>
+      <br>
+      <div class="row">
+        <div class="col-1">
+          <img class="review_image" src="{{ asset('Images/uploaded-profile') . '/' . $dataUser->profile_image }}">
+        </div>
+        <div class="col">
+          <div>{{ $dataUser->FirstName }} {{ $dataUser->LastName }}</div>
+          <div style="font-size:14px; color:grey">Review Count: {{ $dataUser->reviews()->count() }}</div>
+        </div>
+        <div class="col-8">
+          <div class="row row-cols-1">
+            <div class="col d-flex">
+              @for ($i = 0; $i < floor($reviewdata->rating); $i++)
+                <i class="fa fa-star" style="color:#4F2982"></i>
+              @endfor
+
+              @if (ceil($reviewdata->rating) - $reviewdata->rating == 0.5)
+                <i class="fa fa-star-half-o" style="color:#4F2982"></i>
+              @endif
+
+              @for ($i = 0; $i < 5 - ceil($reviewdata->rating); $i++)
+                <i class="fa fa-star-o" style="color:#4F2982"></i>
+              @endfor
+              <div style="margin-left:6px;font-size:12px; color:grey">{{ $reviewdata->rating }} out of 5</div>
+              <p style="text-transform: capitalize; margin-left:15px; margin-top:-3px;">
+                {{ \Carbon\Carbon::parse($reviewdata->created_at)->format('F j Y') }}</p>
             </div>
+
+
+          </div>
+
+
+          <p>{{ $reviewdata->message }}</p>
         </div>
-    
-    
-       
-            
-                
-        </div>
-         
-    </form>
-    
-    <br><br><br><br><br><br><br><br><br><br><br><br>
-    <script src="{{ asset('css-js/booking.js') }}"></script>
-</body>
+      </div>
+      <br>
+
+
+
+    @endforeach
+  </div>
+  </div>
+
+  </form>
+
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  <script src="{{ asset('css-js/booking.js') }}"></script>
+  </body>
 
 @endsection

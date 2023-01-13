@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\UserSeller;
 use App\Models\service;
+use App\Models\Review;
 use App\Models\User;
+use App\Models\Skill;
+use Illuminate\Support\Facades\Auth;
 class SellerServiceController extends Controller
 {
     public function saveService(Request $request){
@@ -39,9 +42,9 @@ class SellerServiceController extends Controller
         }
         
         
-        $data = array();
-        if (Session()->has('signInId')){
-            $data = User::where('id','=', Session()->get('signInId'))->first();
+        if (Auth::check()) {
+            $userId = Auth::id();
+            $data = User::where('id', $userId)->first();
         }
         $userSeller = UserSeller::where('user_id', $data->id)->first();
         $userSeller->services()->save($NewService);
@@ -54,9 +57,9 @@ class SellerServiceController extends Controller
     }
     
     public function serviceDetails($id){
-        $data = array();
-        if (Session()->has('signInId')){
-            $data = User::where('id','=', Session()->get('signInId'))->first();
+        if (Auth::check()) {
+            $userId = Auth::id();
+            $data = User::where('id', $userId)->first();
         }
         $serviceData = Service::find($id);
         return view('seller.service-details',compact('serviceData','data',));
@@ -65,9 +68,9 @@ class SellerServiceController extends Controller
 
     public function editService($id)
     {
-        $data = array();
-        if (Session()->has('signInId')){
-            $data = User::where('id','=', Session()->get('signInId'))->first();
+        if (Auth::check()) {
+            $userId = Auth::id();
+            $data = User::where('id', $userId)->first();
         }
         $serviceData = service::find($id);
         return view('seller.edit-service',compact('serviceData','data'));
@@ -99,14 +102,15 @@ class SellerServiceController extends Controller
         $serviceData = Service::find($id);
         $sellerData = UserSeller::where('id','=', $serviceData->user_seller_id)->first();
         $data = User::where('id','=', $sellerData->user_id)->first();
-        
-        return view('feed.service-details-jobfeed',compact('serviceData','data','sellerData'));
+        $skills = Skill::where('user_seller_id', $sellerData->id)->get();
+        $review = Review::where('service_id', $serviceData->id)->get();
+        return view('feed.service-details-jobfeed',compact('serviceData','data','sellerData','skills','review'));
         
     }
     public function ServiceAppointment($id){
-        $data = array();
-        if (Session()->has('signInId')){
-            $data = User::where('id','=', Session()->get('signInId'))->first();
+        if (Auth::check()) {
+            $userId = Auth::id();
+            $data = User::where('id', $userId)->first();
         }
         $serviceData = Service::find($id);
         return view('feed.appointment',compact('serviceData','data',));

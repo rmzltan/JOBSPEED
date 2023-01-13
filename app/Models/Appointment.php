@@ -21,9 +21,17 @@ class Appointment extends Model
         'street',
         'message'
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function service()
     {
         return $this->belongsTo(Service::class);
-        
+    }
+    public function userSeller()
+    {   
+        return $this->belongsTo(UserSeller::class);
     }
 }

@@ -1,0 +1,577 @@
+/*Main freelancer Grid */
+.container-grid{
+  max-width: 1300px;
+  margin: 50px auto;
+  padding: 10px;
+  display:grid;
+  grid-template-columns: repeat(4 , 1fr);
+  column-gap: 30px;
+  row-gap:15px;
+  font-family: 'Open Sans', sans-serif;
+  
+}
+
+.item{
+
+  color:#fff;
+  font-size: 20px;
+  
+}
+.grid-col-span-3{
+  grid-column: span 3;
+}
+.grid-row-span{
+  grid-row: span 7;
+}
+.item :nth-child(1){
+  max-width: 350px;
+  
+}
+.item:nth-child(2){
+  height: fit-content;
+
+}
+.item-activeservice{
+  color: black;
+  background:white !important;
+  padding:10px;
+  padding-top:15px;
+  height:60px;
+  border-radius:15px 15px 15px 15px;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 10%)
+}
+.item-user{
+  background:white !important;
+  color: black;
+  padding:30px;
+  padding-top:15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius:15px 15px 15px 15px;
+}
+
+
+/* part na may picture at prewiew profile sa freelancer ui*/
+
+.main-profile{
+  display:block;
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  border-radius:15px 15px 15px 15px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.cover-image{
+  object-fit:cover;
+  z-index:1;
+  padding:0px;
+}
+.cover-image img{
+  object-fit: cover;
+  height:113px;
+  width:581px;
+  z-index:1;
+  border-radius:15px 15px 0px 0px;
+}
+.profile-image{
+  top:215px;
+  left:190px;
+  z-index:2;
+}
+.profile-image img{
+  position: relative;
+  margin-top:-50px;
+  left:25px;
+  width:110px;
+  height: 110px;
+  z-index:2;
+  border-radius:50%;
+  border:5px white solid;
+  object-fit: cover;
+}
+.previewprofile{
+   position: relative;
+   top:-45px;
+   left:30px;
+   width: 290px;
+   background:#4F2982;
+   color:white;
+   outline:none;
+   border:none;
+   box-shadow:none !important;
+}
+.previewprofile:hover{
+   background:#9F68E8;
+}
+.hr-profile{
+  position: relative;
+  top:-45px;
+  left:30px;
+  max-width: 290px;
+  background:black;
+}
+.main-profile h5{
+  position: relative;
+  top:-55px;
+  left:30px;
+  color:black;
+
+}
+
+
+
+
+.skill-box {
+margin: 0.2rem 4px;
+overflow: hidden;
+border-radius: 5px;
+text-align: center;
+  font-size: 18px;
+}
+
+.skill-size {
+/*flex-basis: 140px;
+      max-width: 250px;*/
+flex-grow: 1;
+flex-shrink: 0;
+
+}
+
+.box-skill{
+  display:block;
+  padding: 10px 20px 10px 20px;
+  margin-top:20px;
+  background: #fff;
+  border-radius:15px 15px 15px 15px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+}
+/* end*/
+
+/* description part for the freelancer ui*/
+.box-description{
+  display:block;
+  padding: 10px 30px 10px 30px;
+  margin-top:20px;
+  background: #fff;
+  border-radius:15px 15px 15px 15px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+}
+.see-all-description{
+  margin-left: 163px;
+  font-size: 16px;
+}
+.see-all-description:link{
+  color:#9F68E8;
+  text-decoration: none;
+
+}
+.see-all-description:active{
+  color:#9F68E8;
+  text-decoration: none;
+
+}
+.see-all-description:visited{
+  color:#9F68E8;
+  text-decoration: none;
+
+}
+.see-all-description:hover{
+  color:#0000FF;
+  text-decoration: none;
+
+}
+.add-skill-p{
+  color:#9F68E8;
+  font-size: 16px;
+}
+.add-skill-p:link{
+  color:#9F68E8;
+  text-decoration: none;
+
+}
+.add-skill-p:active{
+  color:#9F68E8;
+  text-decoration: none;
+
+}
+.add-skill-p:visited{
+  color:#9F68E8;
+  text-decoration: none;
+
+}
+.add-skill-p:hover{
+  color:#0000FF;
+  text-decoration: none;
+
+}
+/*see inbox*/
+.box-inbox{
+  display:block;
+  padding: 10px 30px 10px 30px;
+  margin-top:20px;
+  background: #fff;
+  border-radius:15px 15px 15px 15px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.see-all-inbox{
+  margin-left: 195px;
+  font-size: 16px;
+}
+.see-all-inbox:link{
+  color:#9F68E8;
+  text-decoration: none;
+
+}
+.see-all-inbox:active{
+  color:#9F68E8;
+  text-decoration: none;
+
+}
+.see-all-inbox:visited{
+  color:#9F68E8;
+  text-decoration: none;
+
+}
+.see-all-inbox:hover{
+  color:#0000FF;
+  text-decoration: none;
+
+}
+/* Appointment */
+.appointment{
+  background-color: white;
+  padding:20px;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
+}
+.appointment2{
+  background-color: white;
+  padding:10px;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
+}
+/* user ratings*/
+.checked {
+  color: orange;
+}
+
+/* Three column layout */
+.side {
+  float: left;
+  width: 15%;
+  margin-top: 10px;
+}
+
+.middle {
+  float: left;
+  width: 70%;
+  margin-top: 10px;
+}
+
+/* Place text to the right */
+.right {
+  text-align: right;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The bar container */
+.bar-container {
+  width: 100%;
+  background-color: #f1f1f1;
+  text-align: center;
+  color: white;
+  
+  
+}
+
+/* Individual bars */
+.bar-5 {width: 60%; height: 18px; background-color: #04AA6D;}
+.bar-4 {width: 30%; height: 18px; background-color: #2196F3;}
+.bar-3 {width: 10%; height: 18px; background-color: #00bcd4;}
+.bar-2 {width: 4%; height: 18px; background-color: #ff9800;}
+.bar-1 {width: 15%; height: 18px; background-color: #f44336;}
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+@media (max-width: 400px) {
+  .side, .middle {
+    width: 100%;
+  }
+  /* Hide the right column on small screens */
+  .right {
+    display: none;
+  }
+}
+/*Active Services*/
+.card {
+  min-height: 100%;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #444;
+  position: relative;
+  border-radius:15px 15px 15px 15px;
+  top: 0;
+  transition: all .1s ease-in;
+  
+}
+
+.card:hover {
+  top: -2px;
+  box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+  color:#444;
+}
+
+.card article {
+  padding: 20px;
+  display: flex;
+  
+  flex: 1;
+  justify-content: space-between;
+  flex-direction: column;
+  
+}
+.card .thumb {
+  max-width: 300px;
+  max-height: 170px;
+  object-fit: cover;
+  background-position: center center;
+  border-radius:15px 15px 0px 0px;
+  
+}
+
+.card p { 
+  flex: 1; /* make p grow to fill available space*/
+  line-height: 1.4;
+}
+
+/* typography */
+.card h1 {
+  font-size: 20px;
+  margin: 0;
+  color: #333;
+}
+.card span {
+  font-size: 12px;
+  font-weight: bold;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin: 2em 0 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+          line-clamp: 2; 
+  -webkit-box-orient: vertical;   
+}
+.btn-circle.btn-xl {
+  background:#4F2982;
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  border-radius: 35px;
+  font-size: 24px;
+  line-height: 1.33;
+  position: relative;
+  left:100px;
+  top:100px;
+  outline: none !important;
+  border:none!important;
+  box-shadow:none !important;
+}
+.btn-circle.btn-xl:hover{
+  background-color:#9F68E8;
+  border:none !important;
+}
+
+.btninservice{
+  margin-right: 30px;
+  width: 100px;
+  color:white;
+  background:#4F2982;
+  outline: none !important;
+  border:none!important;
+  box-shadow:none !important;
+}
+.btninservice:hover{
+  background-color:#9F68E8;
+  border:none !important;
+}
+
+
+.skill-box2 {
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.2rem 1.1rem;
+  margin: 0.2rem;
+  font-size: 1rem;
+  position: relative;
+  color:black;
+  text-transform: capitalize;
+}
+
+.skill-box2:hover {
+  background-color: #f5f5f5;
+}
+
+.skill-box2 .delete-button {
+  display: none;
+  position: absolute; /* Position the close button absolutely */
+top: 0; /* Align to top of skill box */
+right: 0; /* Align to right of skill box */
+transition: all 0.2s; /* Add a transition effect */
+z-index: 1;
+}
+
+.skill-box2:hover .delete-button {
+  display: inline-block;
+  cursor: pointer;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
+  background-color: transparent;
+  font-size: 1rem;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  transform: scale(1.2); /* Scale up the delete button on hover */
+  
+}
+
+.skill-box2:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+.pend{
+  background:#4F2982 !important;
+  color:white !important;
+  outline:none;
+  border:none;
+  box-shadow:none !important;
+}
+
+.noAppointment{
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
+  border-bottom:4px solid #4F2982;
+  width: 891px;
+  
+}
+.image3{
+  height:250px;
+  width: 250px;
+  display: block;
+  margin: 0 auto;
+  
+}
+.message{
+  font-size:18px;
+  color:rgb(124, 124, 124); 
+  margin-top: auto;
+  text-align: center;
+}
+
+.product-pic2{
+  width:90px;
+  height: 90px;
+  object-fit: cover;
+}
+.nav-default-img2{
+  object-fit: cover;
+  margin-right: 10px;
+  height:40px;
+  width:40px;
+  border-radius: 50%;
+}
+.divinside{
+  background-color: white;
+  padding:20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
+  border-bottom:4px solid #4F2982;
+}
+
+.see-more-content {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.addReadMore.showlesscontent .SecSec,
+  .addReadMore.showlesscontent .readLess {
+      display: none;
+  }
+
+  .addReadMore.showmorecontent .readMore {
+      display: none;
+  }
+
+  .addReadMore .readMore,
+  .addReadMore .readLess {
+      margin-left: 2px;
+      color: #4F2982;
+      cursor: pointer;
+  }
+
+  .addReadMoreWrapTxt.showmorecontent .SecSec,
+  .addReadMoreWrapTxt.showmorecontent .readLess {
+      display: block;
+  }
+
+  .swiper-button-prev, .swiper-button-next {
+     
+      color: #4F2982 !important;
+    }
+    
+    .review_image{
+      border-radius: 10%;
+      width:80px;
+      height:80px;
+      
+      object-fit: cover;
+    }
+    
+    .rating-progress-bar {
+      width: 60%;
+      height: 15px;
+      background-color: rgb(245, 245, 245);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    
+    .rating-progress-bar-fill {
+      height: 100%;
+      
+    }
+    .details-box{
+      padding:60px;
+      background-color: white;
+      margin-top:30px;
+      border-radius: 15px;
+      border-bottom: 5px solid #4F2982;
+      box-shadow: 0 2px 5px rgb(0 0 0 / 10%)
+    }
+
+  

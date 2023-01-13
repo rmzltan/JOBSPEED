@@ -29,12 +29,33 @@ endphp
         
     }
     input[type="file"] {
-        display: none;
-    }
+  display: none;
+}
+
+.custom-file-upload {
+  position: relative;
+  top:-45px;
+  left:30px;
+  width: 290px;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: white;
+  background:#4F2982;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.custom-file-upload:hover {
+  color: rgb(255, 255, 255);
+  background-color: #9F68E8;
+  
+}
 </style>
 <link rel="stylesheet" type="text/css" href="{{ asset('css-js/freelancer-info.css') }}">
 <body>
-<form action="{{ route('update-profile') }}" method="post" enctype="multipart/form-data">
+<form action="{{ 'add-desc' }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="grid-freelancer-add-info">
         <div class="box-1 grid-row-span">
@@ -45,33 +66,14 @@ endphp
                 <div class="profile-image">
                     <img src="{{ asset('/Images/uploaded-profile') . '/' . $data->profile_image }}">
                 </div>
-                <label class="previewprofile btn btn-outline-success">
-                    <input type="file" name="profile_image" id="profile_image"/>
-                    Add Profile Picture
+                <label for="profile-image-input" class="custom-file-upload previewprofile">
+                    Add photo
                 </label>
+                <input type="file" name="profile_image" id="profile-image-input" accept="image/*" onchange="previewImage()">
                 
                 
                 <hr class="hr-profile">
-                <h5>Skills</h5><p class="add-skill-p">Add</p>
-                <div class="skills">
-                    <div class="_2Ru_P">
-                        <div class="_3b4NQ">
-                            <div class="skill-list">
-                                <div class="skill-size skill-box">HTML5</div>
-                                <div class="skill-size skill-box">CSS3</div>
-                                <div class="skill-size skill-box">JavaScript</div>
-                                <div class="skill-size skill-box">SVG</div>
-                                <div class="skill-size skill-box">C++</div>
-                                <div class="skill-size skill-box">Python</div>
-                                <div class="skill-size skill-box">Rust</div>
-                                <div class="skill-size skill-box">Gravit</div>
-                                <div class="skill-size skill-box">UI/UX</div>
-                                <div class="skill-size skill-box">Github</div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
             <div class="mb-3 box-description">
                 <label for="description" class="form-label">Description</label>

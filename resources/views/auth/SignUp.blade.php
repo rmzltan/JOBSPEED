@@ -265,9 +265,8 @@ endphp
 
             </div>
             <hr class="hrunderpassword">
-            <button type="submit" name="btnSubmit" class="GOOGLE btn btn-secondary">
-              <img src="{{ url('./images/google.svg') }}" class="imggoogle" alt="My Happy SVG" />Sign Up with Google</button>
-            <br><br>
+           
+            <br>
             <input type="submit" name="btnSubmit" value="Sign Up" class="btnsignup btn btn-secondary">
           </form>
         </div>

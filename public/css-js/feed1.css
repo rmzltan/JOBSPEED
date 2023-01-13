@@ -126,10 +126,10 @@
   font-weight: bold;
 }
 .card p{  
-  display:-webkit-box;
-  -webkit-line-clamp:  2;/*Lines you want to show*/;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
 }
 .btncontact{
   color:black;

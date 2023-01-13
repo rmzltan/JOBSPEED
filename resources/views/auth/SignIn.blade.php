@@ -253,9 +253,8 @@ endphp
               <a class="hrefForgotpass" href="url">Forgot Password</a>
 
               <hr class="hrunderpassword">
-              <button type="submit" name="btnSubmit" class="GOOGLE btn btn-secondary">
-                <img src="./images/google.svg" class="imggoogle" alt="My Happy SVG" />Sign In with Google</button>
-              <br><br>
+              
+              <br>
               <button type="submit" class="btnsignup btn btn-secondary" name="btnlogin">Sign In</button>
 
               <p style="position: relative;margin-top:15px;margin-left:115px;">Don't have an Account? <a

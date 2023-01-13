@@ -31,7 +31,7 @@
       </a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-lg-0 mb-2">
-          @if (Session()->has('signInId'))
+          @if (auth()->check())
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/feed">Feed</a>
             </li>
@@ -57,7 +57,7 @@
             <a class="nav-link active" aria-current="page" href="/About-Us.blade.php">About Us</a>
           </li>
         </ul>
-        @if (Session()->has('signInId'))
+        @if (auth()->check())
           <form class="d-flex">
             <ul class="navbar-nav me-auto mb-lg-0 mb-2">
               <li class="nav-item">
@@ -66,10 +66,18 @@
               <li class="nav-item dropdown">
                 <a class="nav-link text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                   aria-expanded="false">
-                  <img class="nav-default-img"src="{{ asset('/Images/uploaded-profile') . '/' . $data->profile_image }}">
+                  <img class="nav-default-img"src="{{ asset('/Images/uploaded-profile') . '/' . auth()->user()->profile_image }}">
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="">Profile</a></li>
+                  <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                  <li class="dropdown-item">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Become a seller</label>
+                    <div class="form-check form-switch" >
+                      
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                    </div>
+                    
+                  </li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>

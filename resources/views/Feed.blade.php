@@ -47,31 +47,6 @@ endphp
 
 <link rel="stylesheet" type="text/css" href="css-js/feed1.css">
 <body>
-    <!--
-	<div class="container-box4">
-		<div class="container-box4-heading" >
-			<h1>Home Services</h1>
-            <form action="" method="post">
-            <div class="category">
-                <div class="input-group mb-3">
-                        <button name="txtall" class="categoryType btn btn-outline-secondary" type="submit">All Categories</button>
-                        <button name="txtpaint" class="categoryType btn btn-outline-secondary" type="submit">Painting</button>
-                        <button name="txtplumb" class="categoryType btn btn-outline-secondary" type="submit">Plumbing</button>
-                        <button name="txtcarp" class="categoryType btn btn-outline-secondary" type="submit">Carpenting</button>
-                        <button name="txtelec" class="categoryType btn btn-outline-secondary" type="submit">Electronics</button>
-            </form>
-                    <form action="feed-search.php" method="get">
-                        <div class="input-group mb-3">
-                            <input type="text" style="width:600px;" class="inputSearch form-control" placeholder="Search" name="txtsearch" aria-describedby="button-addon2">
-                            <button class="categorySearch btn btn-outline-secondary" name="btnsearch" type="submit" id="button-addon2">Search</button>
-                        </div>
-                    </form>
-                   
-                </div>
-            </div>     
-		</div>
-    </div>
--->
     <div class="container-inline-grid">
         
         <div class="container-grid">

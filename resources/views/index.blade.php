@@ -124,10 +124,11 @@
 			<h2>Painter</h2>
 			<p>213 Service Posted</p>
 		</div>
-		<div class="grid-demand-service-Findmore">
-			<img src="{{ url('Images/icon-arrow-right.png') }}">
+		<div class="grid-demand-service-1st">
+			<img src="{{url('Images/pruning-shears')}}.png">
 			<br><br><br><br>
-			<h2 style="text-align:center;">See More</h2>
+			<h2>Gardener</h2>
+			<p>143 Service Posted</p>
 		</div>
 	</div>
 </div>
@@ -228,7 +229,7 @@
 		<h1>Newest Home Services</h1>
 		<p>Narrow down your choice and let the most appealing <br>
 			and matching freelancer show off</p>
-		<a class="viewallbtn btn btn-outline-success" type="submit" href="">View All Listing</a>
+		<a class="viewallbtn btn btn-outline-success" type="submit" href="/SignIn.blade.php">View All Listing</a>
 	</div>
 	<div class="index-grid-list">
 		<div class="item-grid-list-index">

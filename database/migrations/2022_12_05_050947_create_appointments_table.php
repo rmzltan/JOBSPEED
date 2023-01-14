@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('contact');
             $table->string('city');
             $table->string('street');
-            $table->string('message',1000);
+            $table->string('message',2000);
             $table->string('status')->default('pending');
             $table->string('payment')->default('ToPay');
             $table->timestamps();

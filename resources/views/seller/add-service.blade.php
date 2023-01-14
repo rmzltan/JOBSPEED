@@ -47,7 +47,7 @@
                         <div class="col">
                             Categories
                             <div class="input-group mb-3">
-                                <select name ="category" class="inputsignup form-select" id="inputGroupSelect01">
+                                <select name="category" class="inputsignup form-select" id="inputGroupSelect01">
                                   <option selected>Choose...</option>
                                   <option value="Painting">Painting</option>
                                   <option value="Plumbing">Plumbing</option>
@@ -56,6 +56,7 @@
                                 </select>
                                 
                             </div>
+                            
                         </div>
                     </div>
                     <div class="row">
@@ -84,11 +85,12 @@
                     Description
                     <div class=" form mb-3 ">
                         <textarea class="inputsignup form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        <span class="text-error text-danger ms-1">@error ('maxPricing'){{ $message }} @enderror</span>
+                        <span class="text-error text-danger ms-1">@error ('description'){{ $message }} @enderror</span>
                     </div>
                     <div class="form-group mb-3">
                         <label for="">Insert Image</label>
                         <input type="file" name="service_image" class="form-control">
+                        <span class="text-error text-danger ms-1">@error ('service_image'){{ $message }} @enderror</span>
                     </div>
                     <br>
                     <div class="group">

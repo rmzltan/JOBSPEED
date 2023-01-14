@@ -16,13 +16,22 @@
             <div class="col col-lg-4">
               <div class="profile-image">
                 <img src="{{ asset('Images/uploaded-profile') . '/' . $data->profile_image }}" id="preview-image">
+                
               </div>
             </div>
           </div>
           <label for="profile-image-input" class="custom-file-upload">
             Add photo
           </label>
-          <input type="file" name="profile_image" id="profile-image-input" accept="image/*" onchange="previewImage()">
+          <input type="file" name="profile_image" id="profile-image-input" accept="image/*" onchange="checkFileType()">
+          <div class="alert alert-danger" role="alert" 
+            @if ($errors->has('profile_image'))
+                style="display:block;margin:30px;font-size:15px; margin-top:-30px;"
+            @else
+                style="display:none"
+            @endif>
+              <span class="text-danger">@error('profile_image') {{$message}} @enderror </span>
+          </div>
 
         </div>
       </div>
@@ -44,21 +53,25 @@
               <div class="row">
                 <div class="col">
                   <div class="mb-3">
-                    <label for="firstnamd1" class="form-label">First Name</label>
+                    <label for="firstnamd1" class="form-label">First Name 
+                      <span class="text-danger" style="font-size:14px; margin-left:5px;">@error('FirstName') {{$message}} @enderror</span>
+                    </label>
                     <input type="text" class="form-control" name="FirstName" id="firstnamd1" value="{{ $data->FirstName }}"
                       autocomplete="off">
                   </div>
                 </div>
                 <div class="col">
                   <div class="mb-3">
-                    <label for="LastName" class="form-label">Last Name</label>
+                    <label for="LastName" class="form-label">Last Name
+                      <span class="text-danger" style="font-size:14px; margin-left:5px;">@error('LastName') {{$message}} @enderror</span>
+                    </label>
                     <input type="text" class="form-control" name="LastName" id="LastName" value="{{ $data->LastName }}">
                   </div>
                 </div>
               </div>
               <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" name="email" id="email" value="{{ $data->email }}">
+                <input type="email" class="form-control" name="email" id="email" value="{{ $data->email }}"disabled readonly>
               </div>
               <div class="container">
                 <div class="row justify-content-end">
@@ -79,12 +92,17 @@
                     <label for="current_password">Current Password</label>
                     <input type="password" name="current_password" class="form-control" id="current_password" value=""
                       autocomplete="new-password">
+                      <span class="text-danger" style="font-size:14px; margin-left:5px;">@error('current_password') {{$message}} @enderror</span>
+
+
+                      
                   </div>
                 </div>
                 <div class="col">
                   <div class="mb-3">
                     <label for="new_password">New Password</label>
                     <input type="password" name="new_password" class="form-control" id="new_password">
+                    <span class="text-danger" style="font-size:14px; margin-left:5px;">@error('new_password') {{$message}} @enderror</span>
                   </div>
                 </div>
               </div>
@@ -132,10 +150,27 @@
       // Read the file as data URL
       reader.readAsDataURL(file);
     }
+    
+    function checkFileType() {
+        var file = document.querySelector("#profile-image-input").files[0];
+        var fileType = file["type"];
+        var validImageTypes = ["image/jpeg", "image/png", "image/jpg", "image/gif", "image/svg"];
+        if (validImageTypes.indexOf(fileType) < 0) {
+            document.querySelector(".alert").style.display = "block";
+            document.querySelector(".alert").style.margin = "30px";
+            document.querySelector(".alert").style.fontSize = "15px";
+            document.querySelector(".alert").style.marginTop = "-30px";
+            document.querySelector(".text-danger").innerHTML = "The selected file is not a valid image type. Please select a valid image file.";
+            document.querySelector("#profile-image-input").value = "";
+        } else {
+            document.querySelector(".alert").style.display = "none";
+            previewImage();
+        }
+    }
 
     function submitForm(action) {
-  document.getElementById('myForm').action = action;
-  document.getElementById('myForm').submit();
-}
+      document.getElementById('myForm').action = action;
+      document.getElementById('myForm').submit();
+    }
   </script>
 @endsection

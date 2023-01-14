@@ -228,12 +228,15 @@ endphp
             <h1>Welcome Back</h1>
             <p>Welcome back! Please enter your details.</a></p>
             <form action="{{ route('signIn-user') }}" method="post">
-              @if (Session::has('success'))
-              <div class="alert alert-success" style="width:572px;">{{ Session::get('success') }}</div>
-              @endif
-              @if (Session::has('error'))
-                <div class="alert alert-danger" style="width:572px;">{{ Session::get('error') }}</div>
-              @endif
+              <div class="alert alert-danger" role="alert" 
+                @if ($errors->has('error'))
+                    style="display:block;font-size:16px;width:572px;"
+                @else
+                    style="display:none"
+                @endif>
+                  <span class="text-danger">@error('error') {{$message}} @enderror </span>
+              </div>
+              
               @csrf
               <div class="form-floating ">
                 <input type="text" name="email"  placeholder="Email"

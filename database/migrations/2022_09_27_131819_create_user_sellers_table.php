@@ -17,7 +17,7 @@ return new class extends Migration
             Schema::create('user_sellers', function (Blueprint $table) {
                 $table->id();
                 $table->unsignedBigInteger('user_id')->unique();
-                $table->string('description');
+                $table->string('description', 2000);
                 $table->string('birthday');
                 $table->string('contact_number');
                 $table->string('address');

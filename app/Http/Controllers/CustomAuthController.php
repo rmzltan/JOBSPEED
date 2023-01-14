@@ -10,7 +10,8 @@ use App\Models\Appointment;
 use App\Models\UserSeller;
 use App\Models\Service;
 use Illuminate\Support\Facades\Log;
-use Session;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class CustomAuthController extends Controller
 {
@@ -30,7 +31,7 @@ class CustomAuthController extends Controller
             'FirstName' => 'required',
             'LastName' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:8|max:15',
+            'password' => 'required|min:8|max:25',
         ]);
         $user = new User();
 
@@ -106,7 +107,7 @@ class CustomAuthController extends Controller
             'FirstName' => 'required',
             'LastName' => 'required',
             'email' => 'required|email|unique:users,email,' . $request->user()->id,
-            'profile_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'profile_image' => 'image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
         // Update the user's profile
@@ -133,14 +134,18 @@ class CustomAuthController extends Controller
     {
         $request->validate([
             'current_password' => 'required',
-            'new_password' => 'required|min:6',
+            'new_password' => 'required|min:8|max:25',
+            'current_password' => [
+                'required',
+                function ($attribute, $value, $fail) use ($request) {
+                    if (!Hash::check($value, $request->user()->password)) {
+                        $fail('Incorrect current password');
+                    }
+                },
+            ],
         ]);
         // Check if the current password is correct
-        if (!Hash::check($request->current_password, $request->user()->password)) {
-            return redirect()
-                ->back()
-                ->with('error', 'Incorrect current password');
-        }
+        
         $user = $request->user();
         $user->password = Hash::make($request->new_password);
         $user->save();

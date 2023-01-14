@@ -70,14 +70,6 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="/profile">Profile</a></li>
-                  <li class="dropdown-item">
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Become a seller</label>
-                    <div class="form-check form-switch" >
-                      
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                    </div>
-                    
-                  </li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>

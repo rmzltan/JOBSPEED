@@ -22,7 +22,7 @@ return new class extends Migration
                 $table->string('location');
                 $table->integer('minPricing');
                 $table->integer('maxPricing');
-                $table->string('description');
+                $table->string('description', 2000);
                 $table->string('service_image');
                 $table->timestamps();
                 $table->foreign('user_seller_id')

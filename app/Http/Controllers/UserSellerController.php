@@ -29,6 +29,7 @@ class UserSellerController extends Controller
             'gender' => 'required',
             'address' => 'required',
             'contact_number' => 'required',
+            'profile_image' => 'image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
         $user_sell = new UserSeller();

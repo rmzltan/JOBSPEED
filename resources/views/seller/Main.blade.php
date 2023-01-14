@@ -66,9 +66,18 @@ $row = $posts->fetch_assoc();
         </div>
         {{-- end of skills --}}
 
+
         <div class="box-description">
-          <p style="color:black">Description<a class="see-all-description" href="">Edit</a></p>
-          <p style="color:black; font-size:16px; position:relative;margin-top:-10px;word-break: break-all;">{{ $sellerData->description }}</p>
+          <div class="row">
+            <div class="col">
+              <h5 style="color:black">Description</h5>
+            </div>
+            <div class="col d-flex justify-content-end">
+              <a type="button" class="add-skill-p" data-bs-toggle="modal" data-bs-target="#editdesc">Edit</a>
+            </div>
+          </div>
+          <p style="color:black; font-size:16px; position:relative;word-break: normal;">{{ $sellerData->description }}
+          </p>
         </div>
 
       </div>
@@ -458,6 +467,34 @@ $row = $posts->fetch_assoc();
       </div>
     </form>
     {{-- end of modal to add skill --}}
+
+    {{-- modal to edit description  --}}
+    <form method="POST" action="/edit-description">
+      @csrf
+      <div class="modal fade" id="editdesc" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="editdescLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editdescLabel">Description</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="form-floating">
+                <textarea class="form-control" name="description" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Comments</label>
+              </div>
+            </div>
+            <input type="hidden" name="user_seller_id" value="{{ $sellerData->id }}">
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    {{-- end of modal to edit description --}}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 

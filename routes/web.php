@@ -31,6 +31,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/seller/{id}', [UserSellerController::class, 'profile_seller']);
 
+    Route::post('/edit-description', [UserSellerController::class, 'update_description']);
+    
 
     
     Route::get('/Add-Service', function () {
@@ -65,7 +67,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/update-profile', [CustomAuthController::class, 'updateProfile'])->name('update-profile');
     Route::post('/change-password', [CustomAuthController::class, 'changePassword'])->name('change-password');
    
-   
+    
     
     
    

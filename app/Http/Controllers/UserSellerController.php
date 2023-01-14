@@ -130,6 +130,28 @@ class UserSellerController extends Controller
         return view('seller.seller-profile', compact('data', 'sellerData', 'services', 'appointment', 'skills', 'review'));
     }
 
+    public function update_description(Request $request)
+    {
+        $request->validate([
+            'description' => 'required',
+            'user_seller_id' => 'required'
+        ]);
+
+        $user = UserSeller::find($request->user_seller_id);
+
+        if ($user) {
+            $user->description = ltrim(rtrim($request->description));
+            $user->save();
+            return redirect()
+                ->back()
+                ->with('success', 'Description updated successfully');
+        } else {
+            return redirect()
+                ->back()
+                ->with('error', 'User not found');
+        }
+    }
+
     /*
   public function updateProfile(Request $request){
     $request->validate([

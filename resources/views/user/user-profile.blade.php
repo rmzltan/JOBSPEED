@@ -70,8 +70,8 @@
             <div class="row d-flex align-items-center">
               <div class="col-8 col d-inline-flex flex-grow-1 align-items-center w-auto">
                 <div style="font-weight: bold; margin-right:10px;">{{ $dataSellerUSer->FirstName }} {{ $dataSellerUSer->LastName }}</div>
-                <button type="button" class="btn btn-light" style="font-size: 14px;"><i class="bi bi-person-circle"></i> View
-                  Profile</button>
+                <a href="{{url('seller', $sellerData->id)}}" class="btn btn-light" style="font-size: 14px;"><i class="bi bi-person-circle"></i> View
+                  Profile</a>
               </div>
               <div class="col">
 

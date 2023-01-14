@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('Edit-Profile', 'Dashboard | JobSpeed')
+@section('title', 'Edit-Profile | JobSpeed')
 @section('main-container')
   <link rel="stylesheet" type="text/css" href="css-js/user-profile.css">
   <form id="myForm" action="" method="post" enctype="multipart/form-data">

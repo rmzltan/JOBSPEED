@@ -33,7 +33,7 @@ $row = $posts->fetch_assoc();
               <p style="color:black;">{{ $data->FirstName }} {{ $data->LastName }}</p>
             </div>
           </div>
-          <a class="previewprofile btn btn-outline-success" type="submit" href="">Preview Profile</a>
+          <a class="previewprofile btn btn-outline-success" type="submit" href="{{url('seller', $sellerData->id)}}">Preview Profile</a>
         </div>
 
         {{-- Start of skills --}}
@@ -85,7 +85,7 @@ $row = $posts->fetch_assoc();
 
       {{-- service start --}}
       @if (session('message'))
-        <h6 class="alert alert-success">{{ session('message') }}</h6>
+        <h6 class="alert alert-success" >{{ session('message') }}</h6>
       @endif
       <div class="grid-col-span-3 item item-activeservice">Active Services</div>
       @foreach ($services as $service12)
@@ -481,8 +481,8 @@ $row = $posts->fetch_assoc();
             </div>
             <div class="modal-body">
               <div class="form-floating">
-                <textarea class="form-control" name="description" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                <label for="floatingTextarea2">Comments</label>
+                <textarea class="form-control" name="description" placeholder="Leave a comment here" id="descfloating" style="height: 100px">{{$sellerData->description}}</textarea>
+                <label for="descfloating">Description</label>
               </div>
             </div>
             <input type="hidden" name="user_seller_id" value="{{ $sellerData->id }}">

@@ -60,9 +60,6 @@
         @if (auth()->check())
           <form class="d-flex">
             <ul class="navbar-nav me-auto mb-lg-0 mb-2">
-              <li class="nav-item">
-                <i style="margin-top:20px;" class="fa-solid fa-bell"></i>
-              </li> 
               <li class="nav-item dropdown">
                 <a class="nav-link text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                   aria-expanded="false">

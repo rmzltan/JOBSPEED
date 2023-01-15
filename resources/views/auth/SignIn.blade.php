@@ -250,10 +250,6 @@ endphp
                 <label for="password">Password</label>
                 <span class="text-danger ms-2">@error ('password'){{ $message }} @enderror</span>
               </div>
-              
-              <input style="cursor: pointer;"type="checkbox" id="remember" name="remember" value="rememberme">
-              <label for="vehicle1" style="color:#848484; font-weight:300;"> Remember me</label>
-              <a class="hrefForgotpass" href="url">Forgot Password</a>
 
               <hr class="hrunderpassword">
               

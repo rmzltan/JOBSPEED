@@ -77,7 +77,7 @@ endphp
             </div>
             <div class="mb-3 box-description">
                 <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" name='description' id="description" rows="6" >{{ old('description') }}</textarea>
+                <textarea placeholder="Input your details about your profile etc.." class="form-control" name='description' id="description" rows="6" >{{ old('description') }}</textarea>
                 <span class="text-error text-danger ms-1">@error ('description'){{ $message }} @enderror</span>
             </div>
 
@@ -120,13 +120,14 @@ endphp
                     </div>
                     <div class="col">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gender" id="gender" value="Male" checked>
+                            <input class="form-check-input" type="radio" name="gender" id="gender" value="Male" >
                             <label class="form-check-label" for="exampleRadios1">Male</label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gender" id="gender" value="Female" checked>
+                            <input class="form-check-input" type="radio" name="gender" id="gender" value="Female" >
                             <label class="form-check-label" for="exampleRadios1">Female</label>
                           </div>
+                          <span class="text-error text-danger ms-1">@error ('gender'){{ $message }} @enderror</span>
                     </div>
                     
                 </div>

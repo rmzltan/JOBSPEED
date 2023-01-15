@@ -6,6 +6,8 @@ use App\Http\Controllers\UserSellerController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SellerServiceController;
 use App\Http\Controllers\AppointmentController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +20,7 @@ use App\Http\Controllers\AppointmentController;
 |
 */
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/add-info', [UserSellerController::class, 'addInfo']);
 
     Route::post('add-desc', [UserSellerController::class, 'updateProfile']);
@@ -30,11 +32,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/Add-Service', [UserSellerController::class, 'addService']);
 
     Route::get('/seller/{id}', [UserSellerController::class, 'profile_seller']);
-
+    
     Route::post('/edit-description', [UserSellerController::class, 'update_description']);
-    
 
-    
     Route::get('/Add-Service', function () {
         return view('seller.add-service');
     });
@@ -68,10 +68,13 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/change-password', [CustomAuthController::class, 'changePassword'])->name('change-password');
    
     
-    
-    
    
 });
+
+Route::get('/About-Us.blade.php', function () {
+    return view('extra.About-Us');
+});
+
  // review
  Route::post('/services/{id}/reviews', [ReviewController::class, 'store']);
 Route::get('/', function () {
@@ -101,9 +104,11 @@ Route::get('/privacy.blade.php', function () {
     return view('extra.privacy');
 });
 
-Route::get('/About-Us.blade.php', function () {
-    return view('extra.About-Us');
-});
+
 Route::get('/terms.blade.php', function () {
     return view('extra.terms');
 });
+
+Auth::routes(['verify' => true]);
+
+Route::get('/home', [HomeController::class, 'index']);

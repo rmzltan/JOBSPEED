@@ -12,9 +12,7 @@
 						and customers</span> </h1>
 			</div>
 			<div class="col">
-				<p class="moto-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
-					Reiciendis nulla, corporis ut quibusdam nihil rem, eaque, <br>
-					repellendus ducimus tempora in explicabo repudiandae. </p>
+			
 			</div>
 			
 		</div>
@@ -61,10 +59,7 @@
             <div class="team-block col-lg-4 col-md-6 col-sm-12">
               <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                 <ul class="social-icons">
-                  <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                  <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                  <li><a href="#"><i class="fa-brands fa-instagram-square"></i></a></li>
-                  <li><a href="#"><i class="fa-brands fa-steam"></i></a></li>
+                  <li><a href="https://www.facebook.com/j.orlxnd" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                 </ul>
                 <div class="image">
                   <a href="#"><img src="{{ url('Images/about-us-prane.jpg') }}" alt="" /></a>
@@ -79,10 +74,7 @@
             <div class="team-block col-lg-4 col-md-6 col-sm-12">
               <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                 <ul class="social-icons">
-                  <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                  <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                  <li><a href="#"><i class="fa-brands fa-instagram-square"></i></a></li>
-                  <li><a href="#"><i class="fa-brands fa-steam"></i></a></li>
+                  <li><a href="https://www.facebook.com/ramzeltanszxc/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                 </ul>
                 <div class="image">
                   <a href="#"><img src="{{ url('Images/about-us-tan.jpg') }}" alt="" /></a>
@@ -97,10 +89,7 @@
             <div class="team-block col-lg-4 col-md-6 col-sm-12">
               <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                 <ul class="social-icons">
-                  <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                  <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                  <li><a href="#"><i class="fa-brands fa-instagram-square"></i></a></li>
-                  <li><a href="#"><i class="fa-brands fa-steam"></i></a></li>
+                  <li><a href="https://www.facebook.com/Aeaeaeaeaeangel" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                 </ul>
                 <div class="image">
                   <a href="#"><img src="{{ url('Images/about-us-onan.jpg') }}" alt="" /></a>
@@ -148,8 +137,8 @@
 				<hr style="border-top:0.5px solid white">
 				<br>
 				<div style="display:flex;">
-					<button type="button" class="contact-button btn btn-primary">Contact Us &emsp; <i class="bi bi-arrow-right"></i></button>
-					<p style="font-size:18; margin-left:40px; color:white; margin-top:10px">Or call +63&nbsp; (995)&nbsp; 879&nbsp; 5666</p>
+					<button type="button" class="contact-button btn btn-primary">Call Us &emsp; <i class="bi bi-arrow-right"></i></button>
+					<p style="font-size:18; margin-left:10px; color:white; margin-top:10px">+63&nbsp; (951)&nbsp; 329&nbsp; 0257</p>
 				</div>
 				
 			</div>

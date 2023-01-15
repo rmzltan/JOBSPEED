@@ -68,21 +68,12 @@ endphp
             </div>
             @endforeach
         </div>
-        <div class="container-grid-category">
-            <div class="itemCategory">
-                <h2>Category</h2>   
-                <hr>
-                    <a href ="" class="category-link">Plumbing</a>
-                    <a class="category-link">Painting</a>
-                    <a class="category-link">Carpenting</a>
-                    <a class="category-link">Electronics</a>
-            </div>
-            
+        <div class="container-grid-category"> 
         </div>
     </div>
     
     
-	<br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     
 </body>
 @endsection

@@ -25,12 +25,14 @@ class UserSellerController extends Controller
     {
         $request->validate([
             'description' => 'required',
-            'birthday' => 'required',
+            'birthday' => 'required|date|before:-18 years',
             'gender' => 'required',
             'address' => 'required',
-            'contact_number' => 'required',
+            'contact_number' => 'required|numeric|regex:/^(63)[9,8,7][0-9]{9}$/',
             'profile_image' => 'image|mimes:jpeg,png,jpg,gif,svg',
         ]);
+
+        
 
         $user_sell = new UserSeller();
 
@@ -69,6 +71,7 @@ class UserSellerController extends Controller
 
         return redirect('Dashboard');
     }
+    
     public function dashboard(Request $request)
     {
         if (Auth::check()) {

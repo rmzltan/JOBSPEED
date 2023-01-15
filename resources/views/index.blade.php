@@ -19,7 +19,7 @@
 				<h1 class="infoH1">do the job.</h1>
 				<p class="infoP">Creative people lets you find the right job for any<br>
 					challenge from development to marketing</p>
-				<a type="button" class="btngetstart btn btn-primary" href="/feed">Get Started</a>
+				<a type="button" class="btngetstart btn btn-primary" href="SignIn.blade.php">Get Started</a>
 			</div>
 			<div class="col-size col col-2">
 				<div class="vertical1"></div>
@@ -179,13 +179,13 @@
 							<img src="{{ url('Images/testimonials-james-reid.jpg') }}" />
 						</div>
 						<div class="name-user">
-							<strong>James Reid</strong>
-							<span>@Jeyms_R</span>
+							<strong>Aeron</strong>
+							<span>@aeron28</span>
 						</div>
 					</div>
 				</div>
 				<div class="client-comment">
-					<p>I have been working with JOBSPEED for year, and they provide the best services at the best prices. I highly recommend JOBSPEED!</p>
+					<p>I have been working with JOBSPEED, and they provide the best services at the best prices!</p>
 				</div>
 			</div>
 			<div class="testimonial-box">
@@ -195,8 +195,8 @@
 							<img src="{{ url('Images/testimonials-daniel-padilla.png') }}" />
 						</div>
 						<div class="name-user">
-							<strong>Daniel Paddila</strong>
-							<span>@DJ__</span>
+							<strong>Orland</strong>
+							<span>@olando</span>
 						</div>
 					</div>
 				</div>
@@ -211,13 +211,13 @@
 							<img src="{{ url('Images/testimonials-joshua-garcia.png') }}" />
 						</div>
 						<div class="name-user">
-							<strong>Joshua Garcia</strong>
-							<span>@Joshyyy</span>
+							<strong>Ramzel</strong>
+							<span>@ramuzeruh</span>
 						</div>
 					</div>
 				</div>
 				<div class="client-comment">
-					<p>I have used JOBSPEED for about six months now and I've got to say I am happy with the work they preform thus far! </p>
+					<p>I have used JOBSPEED for quite a while now and I've got to say I am happy with the work they preform thus far! </p>
 				</div>
 			</div>
 		</div>

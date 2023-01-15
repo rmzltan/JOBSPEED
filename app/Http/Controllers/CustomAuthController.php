@@ -28,8 +28,8 @@ class CustomAuthController extends Controller
     public function registerUser(Request $request)
     {
         $request->validate([
-            'FirstName' => 'required',
-            'LastName' => 'required',
+            'FirstName' => 'required|alpha',
+            'LastName' => 'required|alpha',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8|max:25',
         ]);
@@ -41,7 +41,7 @@ class CustomAuthController extends Controller
         $user->password = Hash::make($request->password);
         $res = $user->save();
         if ($res) {
-            return back()->with('success', 'You have successfully registered');
+            return back()->with('success', 'You have successfully registered! Sign in to verify your account.');
         } else {
             return back()->with('error', 'something wrong');
         }

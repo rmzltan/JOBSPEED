@@ -60,11 +60,20 @@
                     <div class=" form mb-3 ">
                         <div class="input-group mb-3">
                             <select name ="category" class="inputsignup form-select" id="inputGroupSelect01" value="{{$serviceData->category}}" >
-                            <option selected>Choose...</option>
-                            <option value="Painting">Painting</option>
-                            <option value="Plumbing">Plumbing</option>
-                            <option value="Carpenting">Carpenting</option>
-                            <option value="Electronics">Electronics</option>
+                                <option selected>Choose...</option>
+                                <option value="Carpenting">Carpenting</option>
+                                <option value="Cleaning">Cleaning</option>
+                                <option value="Decorating">Decorating</option>
+                                <option value="Demolition">Demolition</option>
+                                <option value="Education">Education</option>
+                                <option value="Electrical">Electrical</option>
+                                <option value="Installation">Installation</option>
+                                <option value="Landscaping">Landscaping</option>
+                                <option value="Painting">Painting</option>
+                                <option value="Plumbing">Plumbing</option>
+                                <option value="Repair">Repair</option>
+                                <option value="Treatment">Treatment</option>
+                                <option value="Wielding">Wielding</option>
                             </select>
                         </div>
                     </div>

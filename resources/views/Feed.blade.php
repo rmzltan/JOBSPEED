@@ -41,26 +41,31 @@ if(isset($_POST['txtelec'])){
 
 endphp
 -->
+
 @extends('layouts.master')
 @section('title', 'Feed | JobSpeed')
 @section('main-container')
 
 <link rel="stylesheet" type="text/css" href="css-js/feed1.css">
 <body>
-    <div class="container-inline-grid">
-        
+   	<div class="index-grid-list">
         <div class="container-grid">
-            @foreach ($serviceData as $service )
+            @php 
+            $i = 0; @endphp
+            @foreach ($serviceData as $service)
+            
             <div id="left" class="item">
                 <a href="{{ url('service-details-jobfeed/'.$service->id) }}" class="card">
                     <img src="{{ asset('Images/uploaded-services') . '/' . $service->service_image }}" alt="" class="thumb">
                     <article>
                         <h1>{{ $service->title }}</h1>
-                        <div style="display:inline-block;margin-bottom:5px; margin-top:5px"><i class="fa-solid fa-location-dot"></i><span> {{$service->location}}</span></div>
+                        <div style="display:inline-block;margin-bottom:20px; margin-top:10px"><i class="fa-solid fa-location-dot"></i><span> {{$service->location}}</span></div>
+                        {{-- <div style="display:inline-block;margin-bottom:15px;"><i class="fa fa-user-circle-o"></i><span> {{ $serviceswithusers[$i]->FirstName}} {{ $serviceswithusers[$i]->LastName}}</span></div> --}}
+                        @php $i++; @endphp
                         <p>{{ $service->description }}</p>
                         <p>Starting at <span style="color:green;">&#8369; {{ $service->minPricing }}</span></p>
                         <div class="btngrp">
-                            <button type="submit" name="btncontact" class="btncontact btn btn-secondary" >Contact</button>
+                            <button type="submit" name="btncontact" class="btncontact btn btn-secondary" >View</button>
                             <button type="submit" name="btnavail" class="btnavail btn btn-secondary" >Avail</button>
                         </div>
                     </article> 
@@ -68,12 +73,11 @@ endphp
             </div>
             @endforeach
         </div>
-        <div class="container-grid-category"> 
-        </div>
     </div>
+        <center>{{ $serviceData->links() }}</center>
     
     
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br>
     
 </body>
 @endsection

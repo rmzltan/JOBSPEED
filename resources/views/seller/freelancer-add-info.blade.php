@@ -136,7 +136,14 @@ endphp
                     <div class="group">
                         <a class="btncancel btn btn-outline-success" type="submit" href="feed">Cancel</a>
                         <input type="submit" name="btnSubmit" value="Save" class="btncancel btn btn-secondary" href="">
+                        <br><br>
+                        <p><span style="font-weight:bold">NOTE:</span> Once you click save you will become a freelancer for home services.</p>
+                         <div class="form-check">
+                            <input class="form-check-input" type="radio" name="checkTerms" id="checkTerms" value="checkTerms" >
+                            <label class="form-check-label" for="exampleRadios1">By ticking this you are agreeing to the <span style="color:#4f2982;font-weight:bold"><a href="terms.blade.php" target="_blank">TERMS</a></span> and <span style="color:#4f2982;font-weight:bolder"><a href="privacy.blade.php" target="_blank">PRIVACY POLICY</a></span>.</label>
+                          </div>
                     </div>
+                    
                 </div>    
                 </div>
                 <div class="box-3">

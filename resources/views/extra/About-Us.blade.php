@@ -1,3 +1,4 @@
+
 @extends('layouts.master')
 @section('title', 'About Us | JobSpeed')
 @section('main-container')
@@ -116,7 +117,7 @@
 				<p style="font-size:20px;">We believe it takes great people to make a great product. That's why <br>
 					we hire not only the perfect professional fits, but people who embody <br>
 					 our company values.</p>
-				<a href="" style="color:black; font-size:20px">See open position</a>
+                <a href="/add-info" style="color:black; font-size:20px;">See open position</a>
 			</div>
 		</div>
 	</div>

@@ -26,8 +26,8 @@
             <h1>Verify Email</h1>
             <p>You will need to verify your email to complete registration</p>
             <img class="image3" src="{{ url('Images/email.png') }}">
-            <p>An email has been sent to your email with a link to verify your account. <br>
-                If you have not received the email after a few minutes, please check your spam folder</p>
+            <p>Kindly click the send button and we will send your email a link to verify your account. <br>
+                If you have not received the email after a few minutes, please check your spam or junk folder</p>
             <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                 @csrf
                 <button type="submit" class="btn btn btn-outline-success">{{ __('Send Verification') }}</button>.

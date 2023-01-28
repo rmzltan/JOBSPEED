@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <script src="https://kit.fontawesome.com/6ddf20ea5f.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/ico" href="Images/favicon.ico" />
 
   <title>@yield('title')</title>
 </head>

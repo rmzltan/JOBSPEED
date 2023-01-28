@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Service;
 use App\Models\Skill;
-use App\Models\userSeller;
+use App\Models\UserSeller;
 use App\Models\Appointment;
 use App\Models\Review;
 use Illuminate\Support\Facades\Auth;
@@ -36,17 +36,19 @@ class UserSellerController extends Controller
 
         $user_sell = new UserSeller();
 
+        $userId = Auth::id();
         $user_sell->description = $request->description;
         $user_sell->birthday = $request->birthday;
         $user_sell->gender = $request->gender;
         $user_sell->address = $request->address;
         $user_sell->contact_number = $request->contact_number;
+        $user_sell->user_id = $userId;
 
         if (Auth::check()) {
             $userId = Auth::id();
             $data = User::where('id', $userId)->first();
             $request->session()->put('UserID', $request->birthday);
-            $user = User::where('role', $data->role)->first();
+            $user = User::find($userId); // find the user by ID instead of by role
             $user->role = 'seller';
             $user->save();
 
@@ -54,7 +56,7 @@ class UserSellerController extends Controller
                 $file = $request->file('profile_image');
                 $extention = $file->getClientOriginalExtension();
                 $filename = time() . '.' . $extention;
-                $file->move('Images/uploaded-profile', $filename);
+                $file->move(base_path('public/Images/uploaded-profile'), $filename);
                 $user->profile_image = $filename;
                 $user->save();
             } elseif ($request->gender == 'Female') {
@@ -87,7 +89,7 @@ class UserSellerController extends Controller
             $appointment = Appointment::where('user_seller_id', $sellerData->id)->get();
             $skills = Skill::where('user_seller_id', $sellerData->id)->get();
             $review = Review::where('user_seller_id', $sellerData->id)->get();
-            return view('seller.main', compact('data', 'sellerData', 'services', 'appointment', 'skills', 'review'));
+            return view('seller.Main', compact('data', 'sellerData', 'services', 'appointment', 'skills', 'review'));
         }
     }
     public function updateSkills(Request $request)

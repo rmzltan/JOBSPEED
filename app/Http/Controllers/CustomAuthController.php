@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -17,19 +18,19 @@ class CustomAuthController extends Controller
 {
     public function login()
     {
-        return view('auth.signIn');
+        return view('auth.SignIn');
     }
 
     public function registration()
     {
-        return view('auth.signUp');
+        return view('auth.SignUp');
     }
 
     public function registerUser(Request $request)
     {
         $request->validate([
-            'FirstName' => 'required|alpha',
-            'LastName' => 'required|alpha',
+            'FirstName' => 'required|regex:/^[\pL\s]+$/u',
+            'LastName' => 'required|regex:/^[\pL\s]+$/u',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8|max:25',
         ]);
@@ -69,9 +70,15 @@ class CustomAuthController extends Controller
         if (Auth::check()) {
             $userId = Auth::id();
             $data = User::where('id', $userId)->first();
+            $serviceswithusers =  DB::table('service')
+                ->join('user_sellers', 'service.user_seller_id', '=', 'user_sellers.id')
+                ->join('users', 'user_sellers.user_id', '=', 'users.id')
+                ->select('users.FirstName', 'users.LastName')
+                ->get();
+            $serviceData = Service::orderBy('created_at', 'desc')->simplePaginate(8);
         }
 
-        return view('feed', compact('data'));
+        return view('Feed', compact('data', 'serviceswithusers', 'serviceData'));
     }
 
     public function logout()
@@ -104,9 +111,8 @@ class CustomAuthController extends Controller
     {
         // Validate the input fields
         $request->validate([
-            'FirstName' => 'required',
-            'LastName' => 'required',
-            'email' => 'required|email|unique:users,email,' . $request->user()->id,
+            'FirstName' => 'required|regex:/^[\pL\s]+$/u',
+            'LastName' => 'required|regex:/^[\pL\s]+$/u',
             'profile_image' => 'image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
@@ -114,12 +120,12 @@ class CustomAuthController extends Controller
         $user = $request->user();
         $user->FirstName = $request->FirstName;
         $user->LastName = $request->LastName;
-        $user->email = $request->email;
+
         if ($request->hasfile('profile_image')) {
             $file = $request->file('profile_image');
             $extention = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extention;
-            $file->move('Images/uploaded-profile', $filename);
+            $file->move(base_path('public/Images/uploaded-profile'), $filename);
             $user->profile_image = $filename;
             $user->save();
         }

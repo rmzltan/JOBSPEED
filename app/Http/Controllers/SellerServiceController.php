@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\UserSeller;
-use App\Models\service;
+use App\Models\Service;
 use App\Models\Review;
 use App\Models\User;
 use App\Models\Skill;
@@ -36,7 +36,7 @@ class SellerServiceController extends Controller
             $file = $request->file('service_image');
             $extention = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extention;
-            $file->move('Images\uploaded-services', $filename);
+            $file->move(base_path('public/Images/uploaded-services'), $filename);
             $NewService->service_image = $filename;
         }
 
@@ -80,9 +80,8 @@ class SellerServiceController extends Controller
         $serviceData->maxPricing = $request->input('maxPricing');
         $serviceData->description = $request->input('description');
         $serviceData->update();
-        return redirect()
-            ->back()
-            ->with('status', 'Service updated successfully');
+        return redirect('Dashboard')
+            ->with('message', 'Service Updated Successfully');
     }
 
     public function deleteService(Request $request, $id)
@@ -107,7 +106,8 @@ class SellerServiceController extends Controller
             $userId = Auth::id();
             $data = User::where('id', $userId)->first();
         }
-        $serviceData = Service::find($id);
+        $serviceID = Service::find($id);
+        $serviceData = $serviceID->paginate(8);
         return view('feed.appointment', compact('serviceData', 'data'));
     }
 }

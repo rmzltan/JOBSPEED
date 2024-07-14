@@ -39,7 +39,6 @@
         <h4 class="mt-lg-0 mt-sm-3">Links</h4>
         <ul class="m-0 p-0">
           <li>- <a href="#">Home</a></li>
-          <li>- <a href="#">Services</a></li>
           <li>- <a href="About-Us.blade.php">About</a></li>
           <li>- <a href="terms.blade.php">Terms</a></li>
           <li>- <a href="privacy.blade.php">Privacy Policy</a></li>

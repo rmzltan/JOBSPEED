@@ -71,6 +71,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
    
 });
 
+
 Route::get('/About-Us.blade.php', function () {
     return view('extra.About-Us');
 });
@@ -112,3 +113,4 @@ Route::get('/terms.blade.php', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [HomeController::class, 'index']);
+Route::get('/login', [CustomAuthController::class, 'login'])->name('login');

@@ -344,12 +344,12 @@ flex-shrink: 0;
   
 }
 .card .thumb {
-  max-width: 300px;
-  max-height: 170px;
-  object-fit: cover;
-  background-position: center center;
-  border-radius:15px 15px 0px 0px;
-  
+    width: 280px;
+    height: 180px;
+    object-fit: cover;
+    background-position: center center;
+    border-radius:15px 15px 0px 0px;
+    
 }
 
 .card p { 

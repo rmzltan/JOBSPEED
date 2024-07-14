@@ -175,14 +175,6 @@ php
                             <div class="col price-details">
                                 <h4>Details</h4>
                                 <div class="container-fluid price">
-                                <div class="row">
-                                    <div class="col d-flex align-items-center">
-                                        Enter Promo Code:
-                                    </div>  
-                                    <div class="col">
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
                                 <hr>
                                 <div class="row">
                                     <div class="col">
@@ -208,6 +200,10 @@ php
                                         &#8369; {{ $serviceData->minPricing + 20 }}
                                     </div>
                                 </div>
+                                <br>
+                                <div class="col">
+                                        JOBSPEED recommend to pay depending on the negotiation of the users in-person. (Negotiations exceeding higher or lower than the expected amount is not allowed.)
+                                    </div>
                                 <hr>
                                 <div class="row">
                                     <div class="col">
@@ -228,14 +224,14 @@ php
                                             <input class="form-check-input" type="radio" name="payment" id="flexRadioDefault1" value="G-Cash">
                                             <label class="form-check-label" for="flexRadioDefault1">
                                                 G-Cash
-                                                <p style="font-size:12; color:gray">Accesible 24/7. Top-up must be completed within 30 mins (min. P50)</p>
+                                                <p style="font-size:12; color:gray">Coming soon</p>
                                             </label>
                                         </div>
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="payment" id="flexRadioDefault1" value="Cash-on-site">
                                             <label class="form-check-label" for="flexRadioDefault1">
                                                 Cash-on-site
-                                                <p style="font-size:12; color:gray">Cash-on-site is a feature wherein customers have the option to avail now and pay on site</p>
+                                                <p style="font-size:12; color:gray">Cash-on-site is a feature wherein customers have the option to avail and pay on site</p>
                                             </label>
                                         </div>
                                     </div>
@@ -320,11 +316,11 @@ php
                     </div>
                     <div>
                         <h5>Avg. Response Rate</h5>
-                        <p>1 hour</p>
+                        <p>(Coming Soon)</p>
                     </div>
                     <div>
                         <h5>Last Service</h5>
-                        <p>About 1 hour</p>
+                        <p>(Coming Soon)</p>
                     </div>
                     
                 </div>

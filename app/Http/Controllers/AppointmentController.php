@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\TestEmail;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Service;
 use Illuminate\Support\Facades\Auth;
-use App\Models\userSeller;
+use Illuminate\Support\Facades\Mail;
+use App\Models\UserSeller;
 class AppointmentController extends Controller
 {
     /**
@@ -65,10 +67,13 @@ class AppointmentController extends Controller
             
             $NewAppointment->save();
            
-            
-           
+            $sellerID = UserSeller::where('id', '=', $service->user_seller_id)->first();
+            $userSeller = User::where('id', '=', $sellerID->user_id)->first();
+            $mailData = [
+                "FirstName" => $userSeller->email
+                ];
+            Mail::to($userSeller->email)->send(new TestEmail($mailData));
           
-            
             return redirect('/feed');
         
     }
